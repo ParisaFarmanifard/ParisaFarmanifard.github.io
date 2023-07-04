@@ -43,6 +43,23 @@
       padding: 20px;
       border-radius: 10px;
     }
+    /* Additional styling for table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #333;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: navy;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
   </style>
 </head>
 <body>
@@ -67,14 +84,27 @@
     </ul>
 
     <h3>Work Experiences</h3>
-    <h3>Teaching Assistant</h3>
-    <ul>
-      <li>Object-oriented Software Development (CSE 335)</li>
-      <li>Biometrics and Pattern Recognition (CSE 402)</li>
-    </ul>
-    <ul>
-      <li>IT Engineer/Customer Service, MoneyWay Financial Group, West Vancouver, Canada, 2019</li>
-    </ul>
+    <table>
+      <thead>
+        <tr>
+          <th>Role</th>
+          <th>Company/Organization</th>
+          <th>Period</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Teaching Assistant</td>
+          <td>Object-oriented Software Development (CSE 335), Biometrics and Pattern Recognition (CSE 402)</td>
+          <td>Period</td>
+        </tr>
+        <tr>
+          <td>IT Engineer/Customer Service</td>
+          <td>MoneyWay Financial Group, West Vancouver, Canada</td>
+          <td>2019</td>
+        </tr>
+      </tbody>
+    </table>
 
     <h3>Publications</h3>
     <ul>
@@ -91,3 +121,8 @@
     <ul>
       <li>
         <strong>Cross-Spectral Face Recognition Using a Semantic-Guided Generative Adversarial Network (SG-GAN)</strong>
+      </li>
+    </ul>
+  </div>
+</body>
+</html>
