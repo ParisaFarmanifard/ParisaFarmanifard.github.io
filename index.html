@@ -58,6 +58,16 @@
     tr:nth-child(even) {
       background-color: #f2f2f2;
     }
+    /* Styling for the contact information table */
+    table.contact {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      font-size: 0.9em;
+      width: 50%; /* adjust to the width you desire */
+    }
+    table.contact th[colspan="2"] {
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -65,13 +75,35 @@
     <h1>Parisa Farmanifard</h1>
     <img class="profile" src="images/Parisa.jpg">
 
-    <p>
-      Graduate Research Assistant at iPRoBe Lab<br>
-      Advisor: Dr. Arun Ross<br>
-      Email: <a href="mailto:farmanif@msu.edu">farmanif@msu.edu</a><br>
-      GitHub: <a href="https://github.com/ParisaFarmanifard">https://github.com/ParisaFarmanifard</a><br>
-      Linkedin: <a href="https://www.linkedin.com/in/parisaf/">https://www.linkedin.com/in/parisaf/</a>
-    </p>
+    <table class="contact">
+      <thead>
+        <tr>
+          <th colspan="2">Contact Information</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Role:</td>
+          <td>Graduate Research Assistant at iPRoBe Lab</td>
+        </tr>
+        <tr>
+          <td>Advisor:</td>
+          <td>Dr. Arun Ross</td>
+        </tr>
+        <tr>
+          <td>Email:</td>
+          <td><a href="mailto:farmanif@msu.edu">farmanif@msu.edu</a></td>
+        </tr>
+        <tr>
+          <td>GitHub:</td>
+          <td><a href="https://github.com/ParisaFarmanifard">https://github.com/ParisaFarmanifard</a></td>
+        </tr>
+        <tr>
+          <td>LinkedIn:</td>
+          <td><a href="https://www.linkedin.com/in/parisaf/">https://www.linkedin.com/in/parisaf/</a></td>
+        </tr>
+      </tbody>
+    </table>
 
     <h2>Resume</h2>
     <p>Computer Vision Intern at American Electric Power (AEP) | May 2023 - Aug 2023</p>
