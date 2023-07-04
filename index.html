@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Parisa - Resume and Research</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Roboto', sans-serif;
       line-height: 1.6;
       margin: 20px;
       color: #333;
-      background-image: url('images/background.jpg');
-      background-repeat: no-repeat;
-      background-size: cover;
+      background-color: #f9f9f9;
     }
     img.profile {
       width: 150px;
@@ -24,11 +24,7 @@
       color: #333;
     }
     h2, h3 {
-      color: navy;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
+      color: #2a7fa0;
     }
     a {
       color: #3498db;
@@ -39,9 +35,10 @@
       text-decoration: underline;
     }
     .content {
-      background-color: rgba(255, 255, 255, 0.8);
+      background-color: #ffffff;
       padding: 20px;
       border-radius: 10px;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
     }
     /* Additional styling for table */
     table {
@@ -49,12 +46,12 @@
       border-collapse: collapse;
     }
     th, td {
-      border: 1px solid #333;
+      border: 1px solid #ddd;
       padding: 8px;
       text-align: left;
     }
     th {
-      background-color: navy;
+      background-color: #2a7fa0;
       color: white;
     }
     tr:nth-child(even) {
@@ -76,12 +73,30 @@
     </p>
 
     <h2>Resume</h2>
-    Computer Vision Intern at American Electric Power (AEP) | May 2023 - Aug 2023
+    <p>Computer Vision Intern at American Electric Power (AEP) | May 2023 - Aug 2023</p>
+
     <h3>Education</h3>
-    <ul>
-      <li> Ph.D. in Computer Science, Michigan State University | Fall 2021 - Present</li>
-      <li>Bachelor of Science in IT Engineering, Mazandaran | Fall 2013 - May 2017</li>
-    </ul>
+    <table>
+      <thead>
+        <tr>
+          <th>Degree</th>
+          <th>University/Institute</th>
+          <th>Period</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Ph.D. in Computer Science</td>
+          <td>Michigan State University</td>
+          <td>Fall 2021 - Present</td>
+        </tr>
+        <tr>
+          <td>Bachelor of Science in IT Engineering</td>
+          <td>Mazandaran</td>
+          <td>Fall 2013 - May 2017</td>
+        </tr>
+      </tbody>
+    </table>
 
     <h3>Work Experiences</h3>
     <table>
@@ -107,22 +122,26 @@
     </table>
 
     <h3>Publications</h3>
-    <ul>
-      <li>In progress...!</li>
-    </ul>
+    <p>In progress...!</p>
 
     <h2>Research Area</h2>
-    <h3>Face/Iris Recognition, Computer Vision, Biometrics, Pattern Recognition</h3>
-    <p>
-      
-    </p>
+    <p>Face/Iris Recognition, Computer Vision, Biometrics, Pattern Recognition</p>
 
     <h3>Projects</h3>
-    <ul>
-      <li>
-        <strong>Cross-Spectral Face Recognition Using a Semantic-Guided Generative Adversarial Network (SG-GAN)</strong>
-      </li>
-    </ul>
+    <table>
+      <thead>
+        <tr>
+          <th>Project Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Cross-Spectral Face Recognition Using a Semantic-Guided Generative Adversarial Network (SG-GAN)</td>
+          <td>Project description...</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </body>
 </html>
