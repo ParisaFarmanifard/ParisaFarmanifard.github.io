@@ -1,140 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="no-js" lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parisa - Resume and Research</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link rel="stylesheet" href="styles.css"> <!-- Link to the CSS file -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- Google Analytics script if you need -->
+    <!-- ... -->
+
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Parisa Farmanifard</title>
+    <meta name="description" content="Parisa Farmanifard's Portfolio">
+    <meta name="author" content="Parisa Farmanifard">
+
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- Script
+    ================================================== -->
+    <script src="js/modernizr.js"></script>
+    <script src="js/pace.min.js"></script>
+
+    <!-- Favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <a class="navbar-brand" href="#">Parisa Farmanifard</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#about">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#education">Education</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#experience">Experience</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#publications">Publications</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#projects">Projects</a>
-                </li>
+<body id="top">
+
+    <!-- header
+    ================================================== -->
+    <header class="s-header">
+
+        <div class="header-logo">
+            <a class="site-logo" href="index.html"><img src="images/logo.png" alt="Homepage"></a>
+        </div>
+
+        <nav class="header-nav-wrap">
+            <ul class="header-nav">
+                <li class="current"><a class="smoothscroll" href="#home" title="home">Home</a></li>
+                <li><a class="smoothscroll" href="#about" title="about">About</a></li>
+                <li><a class="smoothscroll" href="#works" title="works">Works</a></li>
+                <li><a class="smoothscroll" href="#blog" title="blog">Blog</a></li>
+                <li><a class="smoothscroll" href="#contact" title="contact">Contact</a></li>
             </ul>
-        </div>
-    </nav>
+        </nav>
 
-    <!-- About Section -->
-    <section id="about" class="pt-5 pb-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                    <h2>About</h2>
-                    <p>Graduate Research Assistant at iPRoBe Lab</p>
-                    <p>Advisor: Dr. Arun Ross</p>
-                    <p>
-                        <i class="fas fa-envelope"></i>
-                        <a href="mailto:farmanif@msu.edu">farmanif@msu.edu</a>
-                    </p>
-                    <p>
-                        <i class="fab fa-github"></i>
-                        <a href="https://github.com/ParisaFarmanifard">GitHub</a>
-                    </p>
-                    <p>
-                        <i class="fab fa-linkedin"></i>
-                        <a href="https://www.linkedin.com/in/parisaf/">LinkedIn</a>
-                    </p>
+        <a class="header-menu-toggle" href="#0"><span>Menu</span></a>
+
+    </header>
+
+    <!-- Home Section
+    ================================================== -->
+    <section id="home" class="s-home page-hero target-section" data-parallax="scroll" data-image-src="images/hero-bg.jpg" data-natural-width="3000" data-natural-height="2000" data-position-y="center">
+
+        <div class="overlay"></div>
+        <div class="shadow-overlay"></div>
+
+        <div class="home-content">
+
+            <div class="row home-content__main">
+
+                <h1>
+                    I am Parisa Farmanifard.<br>
+                </h1>
+                <h3>
+                    [Your Position or Description here]<br>
+                    [Your Institution or Organization here]<br>
+                </h3>
+
+                <div class="home-content__buttons">
+                    <a href="#works" class="smoothscroll btn btn--stroke">
+                        Latest Projects
+                    </a>
+                    <a href="#about" class="smoothscroll btn btn--stroke">
+                        More About Me
+                    </a>
                 </div>
-                <div class="col-lg-6">
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <img class="img-fluid rounded-circle" src="images/Parisa.jpg" alt="Parisa Farmanifard">
-                        </div>
-                        <div class="col-lg-4">
-                            <img class="img-fluid rounded-circle" src="images/f2.jpeg" alt="Image 2">
-                        </div>
-                        <div class="col-lg-4">
-                            <img class="img-fluid rounded-circle" src="images/iris.png" alt="Image 3">
-                        </div>
-                    </div>
+
+                <div class="home-content__scroll">
+                    <a href="#about" class="scroll-link smoothscroll">
+                        <span>Scroll Down</span>
+                    </a>
                 </div>
+
             </div>
+
         </div>
+
     </section>
 
-    <!-- Education Section -->
-    <section id="education" class="pt-5 pb-5 bg-light">
-        <div class="container">
-            <h2>Education</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <h5 class="card-title">Ph.D. in Computer Science</h5>
-                            <p class="card-text">Michigan State University (Fall 2021 - Present)</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <h5 class="card-title">Bachelor of Science in IT Engineering</h5>
-                            <p class="card-text">Mazandaran University (Fall 2013 - May 2017)</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="pt-5 pb-5">
-        <div class="container">
-            <h2>Experience</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <h5 class="card-title">Teaching Assistant</h5>
-                            <p class="card-text">Object-oriented Software Development (CSE 335)</p>
-                        </div>
-                    </div>
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <h5 class="card-title">Teaching Assistant</h5>
-                            <p class="card-text">Biometrics and Pattern Recognition (ECE 895)</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ... (You can add more sections for Publications, Projects, etc.) -->
-
-    <!-- Footer Section (Optional) -->
-    <footer class="pt-4 pb-4 text-center">
-        <p>© 2023 Parisa Farmanifard. All rights reserved.</p>
-    </footer>
+    <!-- [The rest of your sections would follow similarly] -->
 
 </body>
+
 </html>
