@@ -2,57 +2,211 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parisa Farmanifard</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parisa - Resume and Research</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <style>
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color: #fff;
+      color: #001f3f;
+    }
+    h2 {
+      font-weight: 700;
+    }
+    .navbar {
+      background-color: #001f3f;
+    }
+    .nav-link {
+      color: #bbb !important;
+    }
+    .nav-link:hover {
+      color: #fff !important;
+    }
+    section {
+      background-color: #001f3f;
+      color: #fff;
+    }
+    .card {
+      background-color: #fff;
+      color: #001f3f;
+      border-color: #ddd;
+    }
+    .card .card-title {
+      color: #001f3f;
+    }
+    a {
+      color: #007bff;
+    }
+    a:hover {
+      color: #001f3f;
+    }
+    .bg-light {
+      background-color: #fff !important;
+    }
+    #education-header, #publications-header {
+      color: #001f3f;
+    }
+    #profile-image {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  </style>
+</head>  
+<!-- //// -->
 <body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">Parisa Farmanifard</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#education">Education</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#experience">Experience</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#publications">Publications</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#projects">Projects</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-    <!-- Navigation -->
-    <nav>
-        <h1>Parisa Farmanifard</h1>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#publications">Publications</a></li>
-            <li><a href="#projects">Projects</a></li>
-        </ul>
-    </nav>
-
-    <!-- About Section -->
-    <section id="about">
+  <!-- About Section -->
+<section id="about" class="pt-5 pb-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
         <h2>About</h2>
-        <!-- Profile details go here -->
-    </section>
+        <p>Graduate Research Assistant at iPRoBe Lab</p>
+        <p>Advisor: Dr. Arun Ross</p>
+        <p>
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:farmanif@msu.edu">farmanif@msu.edu</a>
+        </p>
+        <p>
+          <i class="fab fa-github"></i>
+          <a href="https://github.com/ParisaFarmanifard">GitHub</a>
+        </p>
+        <p>
+          <i class="fab fa-linkedin"></i>
+          <a href="https://www.linkedin.com/in/parisaf/">LinkedIn</a>
+        </p>
+      </div>
+      <div class="col-lg-6">
+        <div class="row">
+          <div class="col-lg-4">
+            <img class="img-fluid rounded-circle" src="images/Parisa.jpg" alt="Parisa Farmanifard">
+          </div>
+          <div class="col-lg-4">
+            <img class="img-fluid rounded-circle" src="images/f2.jpeg" alt="Image 2">
+          </div>
+          <div class="col-lg-4">
+            <img class="img-fluid rounded-circle" src="images/iris.png" alt="Image 3">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Education Section -->
-    <section id="education">
-        <h2>Education</h2>
-        <!-- Education details go here -->
-    </section>
 
-    <!-- Experience Section -->
-    <section id="experience">
-        <h2>Experience</h2>
-        <!-- Experience details go here -->
-    </section>
+  <!-- Education Section -->
+  <section id="education" class="pt-5 pb-5 bg-light">
+    <div class="container">
+      <h2 id="education-header">Education</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h5 class="card-title">Ph.D. in Computer Science</h5>
+              <p class="card-text">Michigan State University (Fall 2021 - Present)</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h5 class="card-title">Bachelor of Science in IT Engineering</h5>
+              <p class="card-text">Mazandaran University (Fall 2013 - May 2017)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Publications Section -->
-    <section id="publications">
-        <h2>Publications</h2>
-        <!-- Publications list/details go here -->
-    </section>
+  <!-- Experience Section -->
+  <section id="experience" class="pt-5 pb-5">
+    <div class="container">
+      <h2>Experience</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h5 class="card-title">Teaching Assistant</h5>
+              <p class="card-text">Object-oriented Software Development (CSE 335)</p>
+            </div>
+          </div>
+          <div class="card mb-4">
+            <div class="card-body">
+              <h5 class="card-title">Teaching Assistant</h5>
+              <p class="card-text">Biometrics and Pattern Recognition (CSE 402)</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h5 class="card-title">IT Engineer/Customer Service</h5>
+              <p class="card-text">MoneyWay Financial Group, West Vancouver, Canada (2019)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <h2>Projects</h2>
-        <!-- Projects list/details go here -->
-    </section>
-
+  <!-- Publications Section -->
+  <section id="publications" class="pt-5 pb-5 bg-light">
+    <div class="container">
+      <h2 id="publications-header">Publications</h2>
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">In progress...!</h5>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Projects Section -->
+  <section id="projects" class="pt-5 pb-5">
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Cross-Spectral Face Recognition Using a Semantic-Guided Generative Adversarial Network (SG-GAN)</h5>
+        </div>
+      </div>
+    </div>
+  </section>
 </body>
-
 </html>
-
