@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+    <title>Parisa Farmanifard</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <style>
+        body {
+            margin-left: 10%;
+            margin-right: 10%;
+            font-family: 'Open Sans';
+            background-color: #f0f8ff;
+            color: #333;
+            line-height: 1.6;
+        }
+        .title {
+        text-align: center;
+        color: #333; /* Text color */
+        border: 2px solid darkgreen; /* Dark green border */
+        display: inline-block;
+        padding: 10px 20px; /* Padding inside the box */
+        border-radius: 5px; /* Optional: if you want rounded corners */
+        }
+
+/*         .title {
+            text-align: center;
+            color: #333;
+            border-bottom: 2px solid darkgreen;
+            display: inline-block;
+            padding-bottom: 5px;
+        } */
+        /* CSS Styles will be placed here */
+    </style>
+</head>
+<body>
+    <div class="section">
+    <h1 class="title">Parisa Farmanifard</h1>
+    </div>
+    <hr>
+    <div class="intro">
+        <img src="images/MSU.jpg" alt="Parisa Farmanifard" width="180" height="180" style="top: 0px" align="right">
+        <p>
+        Welcome to my webpage! My name is Parisa Farmanifard, I'm a PhD student in Computer Science and Engineering at <em>Michigan State University (MSU)</em>. I am fortunate to be advised by <a href="https://iprobe.cse.msu.edu/people.php" style="text-decoration:underline;color:#3352FF">Dr. Arun Ross</a> in the <a href="https://iprobe.cse.msu.edu/index.php" style="text-decoration:underline;color:#3352FF">iPRoBe Lab</a>. 
+
+    I earned my bachelor's degree in IT Engineering in 2017. Before joining MSU, I worked in the industry for 4 years. Alongside my PhD, I also completed my master's degree at MSU. My research focuses on Computer Vision, Biometrics, and Pattern Recognition.
+
+        </p>
+    </div>
+    <div class="links">
+        <!-- Links to your CV, Google Scholar, GitHub, LinkedIn, Email, etc. -->
+    </div>
+    <div class="section">
+        <h3>News</h3>
+        <ul>
+            <!-- Your latest news and achievements -->
+        </ul>
+    </div>
+    <div class="section">
+        <h3>Research</h3>
+            My research primarily focuses on <strong>cross-spectral face and iris recognition</strong> and <strong>iris segmentation</strong>. These areas involve exploring how to improve identification methods across different spectral ranges and how to accurately segment the iris for recognition. This work is crucial for advancing security and identification technologies.
+
+    </div> 
+    <div class="experience">
+        <h2>Internship Experience</h2>
+        <p>
+            In the summer of 2023, I had an internship experience at <a href="https://www.aep.com/" style="color: red; text-decoration:underline;">American Electric Power (AEP)</a>, 
+working with their emerging technology group. My role involved a project on <em>drone-based pole detection</em>, collaborating closely with a computer vision and machine learning group. During my internship, I have worked with various detection methods, including <strong>Detectron2, Yolov4, Yolov8</strong>, and the <strong>Segment Anything Model (SAM)</strong>, primarily focusing on drone images.
+        </p>
+    </div>
+
+    <!-- Additional content sections -->
+
+    <style>
+        /* Previous CSS styles */
+
+        .experience {
+            background-color: #ffffff;
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+    <br>
+</body>
+</html>
