@@ -37,23 +37,27 @@
             object-position: center;
             margin-right: 20px;
         }
-         .social-links {
+        .social-links {
             border: 2px solid purple;
             padding: 10px;
             width: auto;
-            display: inline-block;
+            display: flex; /* Aligns items in a row */
+            align-items: center; /* Align items vertically */
+            justify-content: flex-start; /* Aligns content to the start of the container */
             margin-bottom: 20px;
             border-radius: 5px;
         }
 
-        .social-links a {
-            margin: 0 5px;
+        .social-links img {
+            width: 24px; /* Smaller width */
+            height: 24px; /* Smaller height */
+            margin-right: 10px; /* Adjust spacing between icons as needed */
         }
 
-        /* Adjust the margin-left as needed to align with the content */
-        .section {
-            margin-top: 10px;
-            clear: both;
+        /* Align the box to the left above the news section */
+        .section.news {
+            clear: both; /* Ensures that the .social-links doesn't overlap with the news section */
+            margin-top: 20px; /* Adjust as needed */
         }
         .experience {
             background-color: #ffffff;
