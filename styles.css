@@ -1,32 +1,57 @@
-p {
-    text-align: left;
-}
-.intro img {
-    padding: 10px;  
-    border-radius: 90px; /* Circular image */
-} 
-body{
+body {
     margin-left: 10%;
     margin-right: 10%;
     font-family: 'Open Sans';
-    background-color: #f4f4f4;
+    background-color: #e8f0fe; /* Soft blue background */
     color: #333;
-} 
-.paper img {
-    width: 40%;
+    line-height: 1.6;
 }
+
+.intro img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%; /* Makes the image circular */
+    border: 4px solid #3352FF; /* Blue border around the image */
+    padding: 5px;
+    float: right;
+    margin-left: 20px;
+}
+
+.section h1, .section h3 {
+    color: #3352FF; /* Blue headings */
+    text-align: center;
+}
+
+.section {
+    background-color: white; /* White background for content sections */
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Adds a subtle shadow to sections */
+}
+
+.links p, .intro p, .section ul {
+    text-align: left;
+}
+
+.links a, .intro a {
+    color: #ff6b6b; /* Soft red for links */
+    text-decoration: none;
+}
+
+.links a:hover, .intro a:hover {
+    text-decoration: underline;
+}
+
+hr {
+    border-color: #3352FF; /* Blue horizontal rule */
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 @media screen and (max-width: 1000px) {
-    .paper img {
-        width: 100%;
-    }
-    body{
+    body {
         margin-left: 3%;
         margin-right: 3%; 
     }
-}
-.section h1, .section h3 {
-    color: #3352FF;
-}
-hr {
-    border-color: #3352FF;
 }
