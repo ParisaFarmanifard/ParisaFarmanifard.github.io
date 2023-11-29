@@ -37,25 +37,34 @@
             object-position: center;
             margin-right: 20px;
         }
-        .social-links {
+        .social-container {
             border: 2px solid purple;
             padding: 10px;
-            width: auto;
-            display: inline-block;
-            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
             border-radius: 5px;
+            margin-bottom: 20px; /* Adjust as needed */
+            max-width: fit-content;
         }
 
-        .social-links a {
-            margin: 0 5px;
+        .social-icon {
+            margin: 0 10px; /* Adjust spacing between icons as needed */
+            height: 30px; /* Set desired size for icons */
         }
 
-        /* Adjust the margin-left as needed to align with the content */
-        .section {
-            margin-top: 10px;
-            clear: both;
+        .social-text {
+            display: none; /* Hide text on smaller screens if needed */
         }
 
+        /* Responsive text for smaller screens */
+        @media screen and (max-width: 768px) {
+            .social-text {
+                display: inline; /* Show text next to icons */
+            }
+            .social-icon {
+                margin: 0 5px; /* Smaller spacing between icons */
+            }
+        }
         .experience {
             background-color: #ffffff;
             margin-top: 20px;
