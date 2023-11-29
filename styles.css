@@ -1,41 +1,59 @@
 body {
-    margin-left: 10%;
-    margin-right: 10%;
+    margin: 0;
+    padding: 0;
     font-family: 'Open Sans';
-    background-color: #e8f0fe; /* Soft blue background */
+    background-color: #f0f8ff; /* Light sky blue background */
     color: #333;
     line-height: 1.6;
+}
+
+header {
+    background-color: #333; /* Dark header */
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+header a:hover {
+    text-decoration: underline;
 }
 
 .intro img {
     width: 180px;
     height: 180px;
-    border-radius: 50%; /* Makes the image circular */
-    border: 4px solid #3352FF; /* Blue border around the image */
-    padding: 5px;
-    float: right;
-    margin-left: 20px;
-}
-
-.section h1, .section h3 {
-    color: #3352FF; /* Blue headings */
-    text-align: center;
+    border-radius: 50%; /* Circular image */
+    border: 4px solid #3352FF; /* Contrasting border color */
+    display: block;
+    margin: 20px auto;
 }
 
 .section {
-    background-color: white; /* White background for content sections */
+    background-color: white;
     padding: 20px;
-    margin-bottom: 20px;
+    margin: 20px auto;
+    max-width: 800px; /* Restricts the width of sections */
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Adds a subtle shadow to sections */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for depth */
 }
 
-.links p, .intro p, .section ul {
+.section h1, .section h3 {
+    color: #3352FF; /* Consistent blue for headers */
+    text-align: center;
+}
+
+.links, .intro, .section ul {
     text-align: left;
+    padding: 0 20px;
 }
 
 .links a, .intro a {
-    color: #ff6b6b; /* Soft red for links */
+    color: #ff6b6b; /* Vibrant link color */
     text-decoration: none;
 }
 
@@ -43,15 +61,23 @@ body {
     text-decoration: underline;
 }
 
-hr {
-    border-color: #3352FF; /* Blue horizontal rule */
-    margin-top: 20px;
-    margin-bottom: 20px;
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 768px) {
     body {
-        margin-left: 3%;
-        margin-right: 3%; 
+        margin: 0;
+        padding: 0;
+    }
+
+    .section {
+        margin: 20px;
     }
 }
