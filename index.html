@@ -39,26 +39,35 @@
         }
         .social-links {
             border: 2px solid purple;
-            padding: 10px;
-            width: auto;
-            display: flex; /* Aligns items in a row */
-            align-items: center; /* Align items vertically */
-            justify-content: flex-start; /* Aligns content to the start of the container */
+            padding: 5px; /* Reduced padding */
+            display: inline-block;
             margin-bottom: 20px;
+            margin-top: 20px; /* Added margin-top for spacing */
             border-radius: 5px;
+            float: left; /* Aligns the box to the left */
+        }
+
+        .social-links a {
+            margin: 0 5px;
+            display: inline-flex; /* Aligns the icon with the text vertically */
+            align-items: center; /* Aligns the icon with the text vertically */
         }
 
         .social-links img {
-            width: 24px; /* Smaller width */
-            height: 24px; /* Smaller height */
-            margin-right: 10px; /* Adjust spacing between icons as needed */
+            width: 20px; /* Smaller width */
+            height: 20px; /* Smaller height */
+        }
+
+        /* Adjust the margin-left as needed to align with the content */
+        .section {
+            clear: both;
         }
 
         /* Align the box to the left above the news section */
-        .section.news {
+/*         .section.news {
             clear: both; /* Ensures that the .social-links doesn't overlap with the news section */
-            margin-top: 20px; /* Adjust as needed */
-        }
+/*             margin-top: 20px; /* Adjust as needed */
+/*         } */
         .experience {
             background-color: #ffffff;
             margin-top: 20px;
