@@ -12,7 +12,7 @@ header {
     color: white;
     padding: 1rem 0;
     text-align: center;
-    border-bottom: 10px solid #00b300; /* Thicker green line under the header */
+    border-bottom: 10px solid #006400; /* Changed to darker green border */
 }
 
 header a {
