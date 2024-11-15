@@ -35,38 +35,57 @@
 
         .social-links {
             display: flex;
+            justify-content: center; /* Center the icons horizontally */
             align-items: center;
-            margin-bottom: 20px;
+            margin: 20px 0; /* Add space above and below the icons */
         }
+        
+        .social-links a {
+            margin: 0 15px; /* Increase spacing between icons */
+        }
+        
         .social-links img {
-            width: 30px;
-            height: 30px;
+            width: 40px; /* Increase icon size for better visibility */
+            height: 40px;
+            transition: transform 0.3s ease; /* Smooth transition for hover effects */
         }
+        
+        .social-links a:hover img {
+            transform: scale(1.1); /* Slightly enlarge icons on hover */
+            opacity: 0.8; /* Slightly fade icons to indicate hover */
+        }
+        
         .section {
             padding-top: 20px;
             border-top: 2px solid #ccc;
         }
+        
         .project {
             padding: 10px;
             background-color: #ffffff;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            margin-top: 10px;
+            margin-top: 20px; /* Increase margin for better spacing */
             border-radius: 8px;
         }
+        
         a {
             color: #007BFF;
             text-decoration: none;
         }
+        
         a:hover {
             text-decoration: underline;
         }
+        
         p, li {
             font-size: 16px;
             text-align: justify;
         }
+        
         li {
             margin: 10px;
         }
+
     </style>
 </head>
 <body>
