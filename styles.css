@@ -1,4 +1,3 @@
-/* Base styles */
 body {
     margin: 0;
     padding: 0;
@@ -8,13 +7,12 @@ body {
     line-height: 1.6;
 }
 
-/* Header styles */
 header {
     background-color: #333; /* Dark header */
     color: white;
     padding: 1rem 0;
     text-align: center;
-    border-bottom: 10px solid #006400; /* Darker green border */
+    border-bottom: 10px solid #006400; /* Changed to darker green border */
 }
 
 header a {
@@ -27,32 +25,29 @@ header a:hover {
     text-decoration: underline;
 }
 
-/* Image styling in intro section */
 .intro img {
     width: 180px;
     height: 180px;
-    border-radius: 50%;
-    border: 4px solid #3352FF; /* Contrasting blue border */
+    border-radius: 50%; /* Circular image */
+    border: 4px solid #3352FF; /* Contrasting border color */
     display: block;
     margin: 20px auto;
 }
 
-/* Section styles */
 .section {
     background-color: white;
     padding: 20px;
     margin: 20px auto;
-    max-width: 800px; /* Restricts width for layout consistency */
+    max-width: 800px; /* Restricts the width of sections */
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for depth */
 }
 
 .section h1, .section h3 {
-    color: #3352FF; /* Blue for headers */
+    color: #3352FF; /* Consistent blue for headers */
     text-align: center;
 }
 
-/* Link styles */
 .links, .intro, .section ul {
     text-align: left;
     padding: 0 20px;
@@ -66,50 +61,52 @@ header a:hover {
 .links a:hover, .intro a:hover {
     text-decoration: underline;
 }
-
-/* Email styles in header */
 .email {
-    font-size: 12px;
-    color: #333;
-    margin-top: 5px;
-    margin-bottom: 0;
+    font-size: 12px; /* Very small font size */
+    color: #333; /* Black color for the text */
+    margin-top: 5px; /* Small space between the name and the email */
+    margin-bottom: 0; /* Reduce bottom margin if necessary */
 }
 
 .email a {
-    color: #333;
-    text-decoration: none;
+    color: #333; /* Black color for the email link */
+    text-decoration: none; /* No underline by default */
 }
 
 .email a:hover {
-    text-decoration: underline;
+    text-decoration: underline; /* Underline on hover for accessibility */
 }
 
-/* Footer styles */
 footer {
-    background-color: #333;
+    background-color: #333; /* Dark background for the footer */
     color: white;
-    text-align: center;
     padding: 20px 0;
+    text-align: center;
 }
 
 footer p {
-    font-size: 16px;
-    margin: 0;
-    padding: 10px;
+    font-size: 16px; /* Larger text for better readability */
+    margin: 0; /* Remove default margin */
+    padding: 10px; /* Add padding for spacing */
 }
 
 footer a {
-    color: #4CAF50; /* Bright green for visibility */
-    text-decoration: none;
-    font-weight: bold;
+    color: #4CAF50; /* Bright color for visibility and design */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Make email address bold */
 }
 
 footer a:hover {
-    text-decoration: underline;
+    text-decoration: underline; /* Underline on hover for interaction feedback */
 }
 
-/* Responsive adjustments */
+
 @media screen and (max-width: 768px) {
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
     .section {
         margin: 20px;
     }
