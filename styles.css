@@ -78,27 +78,29 @@ header a:hover {
 }
 
 footer {
-    background-color: #333; /* Dark background for the footer */
-    color: white;
-    padding: 20px 0;
-    text-align: center;
+    background-color: #f8f9fa; /* Light grey background for contrast */
+    padding: 20px; /* Spacious padding for better visual separation */
+    text-align: center; /* Center the text inside the footer */
+    border: 2px solid #ccc; /* Subtle border for definition */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    margin-top: 20px; /* Space above the footer */
 }
 
 footer p {
-    font-size: 16px; /* Larger text for better readability */
+    font-size: 16px; /* Adequate font size for readability */
+    color: #333; /* Darker text for better readability */
     margin: 0; /* Remove default margin */
-    padding: 10px; /* Add padding for spacing */
 }
 
 footer a {
-    color: #4CAF50; /* Bright color for visibility and design */
-    text-decoration: none; /* Remove underline */
-    font-weight: bold; /* Make email address bold */
+    color: #007bff; /* Bootstrap's primary blue for links */
+    text-decoration: none; /* No underline to keep it clean */
 }
 
 footer a:hover {
-    text-decoration: underline; /* Underline on hover for interaction feedback */
+    text-decoration: underline; /* Underline on hover for accessibility */
 }
+
 
 
 @media screen and (max-width: 768px) {
