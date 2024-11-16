@@ -61,6 +61,20 @@ header a:hover {
 .links a:hover, .intro a:hover {
     text-decoration: underline;
 }
+.email {
+    font-size: 12px; /* Small font size for subtlety */
+    margin-top: 5px; /* Small space below the name */
+    color: #666; /* Lighter text color for the email */
+}
+
+.email a {
+    color: #666; /* Ensures the link is the same color as the text */
+    text-decoration: none; /* No underline */
+}
+
+.email a:hover {
+    text-decoration: underline; /* Underline on hover for accessibility */
+}
 
 footer {
     background-color: #333; /* Dark background for the footer */
