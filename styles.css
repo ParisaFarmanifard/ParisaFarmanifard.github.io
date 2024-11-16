@@ -63,14 +63,28 @@ header a:hover {
 }
 
 footer {
-    background-color: #333;
+    background-color: #333; /* Dark background for the footer */
     color: white;
+    padding: 20px 0;
     text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
 }
+
+footer p {
+    font-size: 16px; /* Larger text for better readability */
+    margin: 0; /* Remove default margin */
+    padding: 10px; /* Add padding for spacing */
+}
+
+footer a {
+    color: #4CAF50; /* Bright color for visibility and design */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Make email address bold */
+}
+
+footer a:hover {
+    text-decoration: underline; /* Underline on hover for interaction feedback */
+}
+
 
 @media screen and (max-width: 768px) {
     body {
