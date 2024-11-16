@@ -62,14 +62,15 @@ header a:hover {
     text-decoration: underline;
 }
 .email {
-    font-size: 12px; /* Small font size for subtlety */
-    margin-top: 5px; /* Small space below the name */
-    color: #666; /* Lighter text color for the email */
+    font-size: 12px; /* Very small font size */
+    color: #333; /* Black color for the text */
+    margin-top: 5px; /* Small space between the name and the email */
+    margin-bottom: 0; /* Reduce bottom margin if necessary */
 }
 
 .email a {
-    color: #666; /* Ensures the link is the same color as the text */
-    text-decoration: none; /* No underline */
+    color: #333; /* Black color for the email link */
+    text-decoration: none; /* No underline by default */
 }
 
 .email a:hover {
