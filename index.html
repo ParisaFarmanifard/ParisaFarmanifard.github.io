@@ -1,360 +1,411 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   <title>Parisa Farmanifard</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Professional type pairing -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Type pairing: Inter + Libre Baskerville -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     :root{
-      --bg: #0c1222;
-      --bg-alt: #0f162a;
-      --card: #121a2f;
-      --elev: 0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.02);
-      --text: #e6e9f2;
-      --muted: #9aa3b2;
-      --primary: #6da9ff;       /* refined blue accent */
-      --primary-strong:#2c7bff;
-      --line: rgba(255,255,255,.08);
-      --ring: rgba(109,169,255,.45);
-      --grad: radial-gradient(1200px 800px at 20% -10%, rgba(65,105,225,.18), transparent 40%),
-              radial-gradient(1000px 700px at 90% 10%, rgba(0,212,255,.12), transparent 42%),
-              radial-gradient(900px 600px at 50% 120%, rgba(0,153,255,.10), transparent 55%);
+      /* Palette — tweak these 6 for quick rebranding */
+      --bg: #0a1120;          /* page background (navy) */
+      --bg-2:#0e1830;         /* alt background */
+      --card:#111f3b;         /* card background */
+      --line: rgba(255,255,255,.12);
+      --text:#f1f5ff;
+      --muted:#9fb0c7;
+      --accent:#2f6dcc;       /* action blue */
+      --accent-2:#8fb6ff;     /* hover lighter */
+      --glow: 0 12px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.03);
+      --radius-lg: 20px;
+      --radius-md: 14px;
     }
 
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
+    *{ box-sizing:border-box; }
+    html, body{ height:100%; }
     body{
       margin:0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background: linear-gradient(180deg, #0a0f1e 0%, #0a0f1e 50%, #0c1222 100%), var(--grad);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       color: var(--text);
+      background:
+        radial-gradient(1200px 700px at 10% -10%, rgba(47,109,204,.18), transparent 50%),
+        radial-gradient(900px 600px at 90% 0%, rgba(47,109,204,.10), transparent 60%),
+        linear-gradient(180deg, #070e1c 0%, #0a1120 50%, #0e1830 100%);
       line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Page container */
-    .page{
-      max-width: 980px;
+    a{ color: var(--accent-2); text-decoration: none; }
+    a:hover{ color: #cfe0ff; text-decoration: underline; }
+
+    .wrap{
+      max-width: 1024px;
       margin: 0 auto;
-      padding: 32px 22px 80px;
-      position: relative;
-      z-index: 1;
+      padding: 28px 18px 80px;
     }
 
     /* Header */
     .header{
-      text-align:center;
-      padding: 36px 20px 28px;
-      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
       border: 1px solid var(--line);
-      border-radius: 20px;
-      box-shadow: var(--elev);
-      position: relative;
-      overflow: hidden;
-      isolation: isolate;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--glow);
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      padding: 34px 22px 22px;
+      text-align: center;
+      position: relative; overflow: hidden; isolation: isolate;
     }
     .header::after{
       content:"";
-      position:absolute; inset:0;
+      position:absolute; inset:-2px;
       background:
-        radial-gradient(600px 180px at 50% 0%, rgba(109,169,255,.15), transparent 70%),
-        radial-gradient(300px 120px at 10% 100%, rgba(255,255,255,.06), transparent 60%);
-      pointer-events:none;
-      z-index:-1;
+        radial-gradient(650px 200px at 50% 0%, rgba(47,109,204,.22), transparent 70%),
+        radial-gradient(380px 160px at 10% 100%, rgba(255,255,255,.05), transparent 65%);
+      pointer-events:none; z-index:-1;
     }
-
-    .profile-picture{
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      display:block;
-      margin: 2px auto 14px;
+    .avatar{
+      width: 160px; height:160px; border-radius: 50%;
       object-fit: cover;
-      box-shadow:
-        0 10px 30px rgba(0,0,0,.45),
-        0 0 0 6px rgba(255,255,255,.03),
-        0 0 0 10px var(--ring);
-      transition: transform .35s ease, box-shadow .35s ease;
-      will-change: transform;
+      display:block; margin: 2px auto 14px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.46), 0 0 0 6px rgba(255,255,255,.04), 0 0 0 10px rgba(47,109,204,.45);
+      transition: transform .3s ease, box-shadow .3s ease;
     }
-    .profile-picture:hover{
-      transform: translateY(-2px);
-      box-shadow:
-        0 14px 34px rgba(0,0,0,.5),
-        0 0 0 6px rgba(255,255,255,.05),
-        0 0 0 12px rgba(109,169,255,.6);
-    }
+    .avatar:hover{ transform: translateY(-2px); box-shadow: 0 14px 38px rgba(0,0,0,.52), 0 0 0 6px rgba(255,255,255,.06), 0 0 0 12px rgba(47,109,204,.55); }
 
     h1{
       margin: 6px 0 6px;
       font-family: "Libre Baskerville", Georgia, serif;
       font-weight: 700;
-      font-size: clamp(28px, 4.2vw, 42px);
+      font-size: clamp(30px, 4.6vw, 44px);
       letter-spacing: .2px;
-      color: #fff;
-      text-shadow: 0 1px 0 rgba(255,255,255,.04);
+      color:#fff;
     }
+
+    .social{
+      display:flex; justify-content:center; align-items:center; gap:16px; margin: 14px 0 0;
+    }
+    .social a{
+      width:48px; height:48px; border-radius: 12px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      display:flex; align-items:center; justify-content:center;
+      box-shadow: 0 6px 16px rgba(0,0,0,.35);
+      transition: transform .25s ease, border-color .25s ease, background .25s ease, box-shadow .25s ease;
+    }
+    .social a:hover{
+      transform: translateY(-2px);
+      background: rgba(47,109,204,.12);
+      border-color: rgba(47,109,204,.30);
+      box-shadow: 0 12px 28px rgba(47,109,204,.28);
+    }
+    .social img{ width:26px; height:26px; }
 
     /* Intro */
     .intro{
-      margin-top: 22px;
-      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 20px 22px;
-      box-shadow: var(--elev);
+      margin-top: 20px;
+      border:1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      box-shadow: var(--glow);
+      padding: 18px 20px;
     }
+    p{ margin: 0 0 10px; text-align: justify; }
 
-    /* Social links */
-    .social-links{
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      gap: 18px;
-      margin: 18px 0 4px;
-    }
-    .social-links a{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:48px; height:48px;
-      border-radius: 12px;
-      background: rgba(255,255,255,.03);
-      border: 1px solid var(--line);
-      box-shadow: 0 6px 16px rgba(0,0,0,.35);
-      transition: transform .25s ease, background .25s ease, border-color .25s ease, box-shadow .25s ease, opacity .25s ease;
-    }
-    .social-links a:hover{
-      transform: translateY(-2px);
-      background: rgba(109,169,255,.10);
-      border-color: rgba(109,169,255,.28);
-      box-shadow: 0 10px 26px rgba(45,123,255,.28);
-    }
-    .social-links img{
-      width:26px; height:26px; opacity:.95;
-      filter: drop-shadow(0 1px 0 rgba(255,255,255,.05));
-      transition: opacity .25s ease;
-    }
-    .social-links a:hover img{ opacity: 1; }
-
-    /* Sections */
+    /* Section */
     .section{
       margin-top: 26px;
-      padding: 24px 22px;
-      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
       border:1px solid var(--line);
-      border-radius:18px;
-      box-shadow: var(--elev);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      box-shadow: var(--glow);
+      padding: 20px 20px;
     }
     .section h3{
       margin: 0 0 12px;
-      font-weight: 800;
-      font-size: clamp(18px, 2.6vw, 22px);
-      letter-spacing:.3px;
-      color:#ffffff;
+      font-weight: 800; color:#fff;
+      font-size: clamp(18px, 2.2vw, 22px);
       display:flex; align-items:center; gap:12px;
-      position: relative;
     }
     .section h3::after{
-      content:"";
-      flex:1;
-      height:1px;
-      background: linear-gradient(90deg, rgba(109,169,255,.45), transparent);
-      opacity:.9;
+      content:""; flex:1; height:1px;
+      background: linear-gradient(90deg, rgba(47,109,204,.45), transparent);
     }
 
-    /* Links and text */
-    a{ color: var(--primary); text-decoration: none; }
-    a:hover{ color: var(--primary-strong); text-decoration: underline; }
-    p, li{
-      font-size: 16px;
-      color: var(--text);
-      text-align: justify;
+    /* Publications list */
+    .pub{
+      display:grid; gap: 12px;
     }
-    li{ margin: 10px 0; }
-
-    /* “Card” projects */
-    .project{
-      padding: 18px 18px;
-      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
-      border:1px solid var(--line);
-      border-radius:14px;
-      margin-top: 16px;
-      box-shadow: var(--elev);
-      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, background .25s ease;
-    }
-    .project:hover{
-      transform: translateY(-3px);
-      border-color: rgba(109,169,255,.28);
-      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
-      box-shadow: 0 12px 30px rgba(0,0,0,.32), 0 0 0 1px rgba(109,169,255,.15) inset;
-    }
-    .project h4{
-      margin: 0 0 6px;
-      font-weight: 700;
-      letter-spacing:.2px;
-      color:#f3f6ff;
-    }
-
-    /* Publications as a sleek timeline */
-    .section p{
+    .pub-item{
       position: relative;
       padding-left: 18px;
     }
-    .section p::before{
-      content:"";
-      position:absolute; left:0; top:.72em;
+    .pub-item::before{
+      content:""; position:absolute; left:0; top:.9em;
       width:8px; height:8px; border-radius:50%;
-      background: var(--primary);
-      box-shadow: 0 0 0 4px rgba(109,169,255,.18);
+      background: var(--accent); box-shadow: 0 0 0 4px rgba(47,109,204,.18);
     }
-    .section p + p{
-      border-top: 1px dashed var(--line);
-      padding-top: 12px; margin-top: 12px;
+    .pub-meta{ color: var(--muted); font-size: 14px; }
+
+    /* Project cards with framework image */
+    .grid{
+      display:grid; gap: 16px;
+      grid-template-columns: repeat(12, 1fr);
+    }
+    .project{
+      grid-column: 1 / -1;
+      border:1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+      box-shadow: var(--glow);
+      padding: 16px;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .project:hover{
+      transform: translateY(-2px);
+      border-color: rgba(47,109,204,.30);
+      box-shadow: 0 20px 40px rgba(0,0,0,.40), 0 0 0 1px rgba(47,109,204,.16) inset;
+    }
+    .project h4{ margin: 0 0 6px; color:#fff; }
+
+    .proj-body{
+      display:grid; gap: 14px;
+      grid-template-columns: 1fr;
+    }
+
+    /* Framework image frame with perfect ratio + lightbox hook */
+    .frame{
+      position: relative; width: 100%;
+      aspect-ratio: 16 / 9;                    /* adjust: 4/3, 1/1, etc. */
+      border:1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      background: #0b1428;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.03);
+      cursor: zoom-in;
+    }
+    .frame img{
+      position:absolute; inset:0; width:100%; height:100%;
+      object-fit: cover; object-position: center;
+      transition: transform .35s ease, filter .35s ease;
+    }
+    .frame:hover img{ transform: scale(1.02); filter: saturate(1.05) contrast(1.02); }
+
+    /* Lightbox using dialog */
+    dialog.lightbox{
+      padding:0; border: none; background: transparent; max-width: 92vw;
+    }
+    dialog::backdrop{
+      background: rgba(0,0,0,.72);
+      backdrop-filter: blur(2px);
+    }
+    .lightbox-img{
+      max-width: 92vw; max-height: 86vh; display:block;
+      border-radius: 12px; border:1px solid var(--line);
+      box-shadow: 0 30px 70px rgba(0,0,0,.6);
     }
 
     /* Footer */
     footer{
-      margin-top: 26px;
-      text-align:center;
-      padding: 18px 16px;
-      border:1px solid var(--line);
-      border-radius:14px;
+      margin-top: 26px; text-align:center; padding: 16px;
+      border:1px solid var(--line); border-radius: 12px;
       background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
-      box-shadow: var(--elev);
-    }
-    footer a{ color: var(--primary); }
-    footer a:hover{ color: var(--primary-strong); }
-
-    /* Accessibility niceties */
-    a:focus-visible, button:focus-visible, .social-links a:focus-visible{
-      outline: 2px solid var(--primary);
-      outline-offset: 3px;
-      border-radius: 8px;
+      box-shadow: var(--glow);
+      font-size: 15px;
     }
 
-    /* Responsive spacing */
+    /* Responsive */
+    @media (min-width: 840px){
+      .proj-body{
+        grid-template-columns: 5fr 7fr;        /* image | text */
+        align-items: start;
+      }
+    }
     @media (max-width: 640px){
-      .profile-picture{ width:140px; height:140px; }
-      .section{ padding:18px 16px; }
-      .project{ padding:16px; }
-      .intro{ padding:16px; }
+      .avatar{ width:140px; height:140px; }
+      .section, .intro{ padding:16px; }
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <div class="header">
-      <img src="images/parisa_july2025.jpg" alt="Parisa Farmanifard" class="profile-picture">
+  <div class="wrap">
+
+    <!-- Header -->
+    <header class="header">
+      <img class="avatar" src="images/parisa_july2025.jpg" alt="Parisa Farmanifard">
       <h1>Parisa Farmanifard</h1>
-    </div>
+      <nav class="social" aria-label="Profiles">
+        <a href="https://scholar.google.com/citations?user=q6iHSi8AAAAJ&hl=en&authuser=3" target="_blank" rel="noopener">
+          <img src="images/googlescholar.png" alt="Google Scholar">
+        </a>
+        <a href="https://github.com/ParisaFarmanifard" target="_blank" rel="noopener">
+          <img src="images/github_icon.svg" alt="GitHub">
+        </a>
+        <a href="https://www.linkedin.com/in/parisaf/" target="_blank" rel="noopener">
+          <img src="images/linkedin_logo_icon.svg" alt="LinkedIn">
+        </a>
+      </nav>
+    </header>
 
-    <div class="intro">
-      <p>Welcome to my webpage! My name is Parisa Farmanifard, a Ph.D. student in the Department of Computer Science and Engineering at Michigan State University, where I conduct research in the <a href="https://iprobe.cse.msu.edu/index.php">iPRoBe Lab</a> under the guidance of <a href="https://scholar.google.com/citations?user=7IiUQDkAAAAJ&hl=en">Dr. Arun Ross</a>. I also earned my M.S. in Computer Science from MSU. My research focuses on biometrics, particularly iris recognition and presentation attack detection, with a growing emphasis on integrating foundation models (FMs) and large language models (LLMs) into biometric systems.
-      <!--         <p>Welcome to my webpage! My name is Parisa Farmanifard, a PhD student in the Computer Science and Engineering department at Michigan State University. I am fortunate to be advised by <a href="https://iprobe.cse.msu.edu/people.php">Dr. Arun Ross</a> in the <a href="https://iprobe.cse.msu.edu/index.php">iPRoBe Lab</a>. I earned my bachelor's degree in IT Engineering in 2017. Before joining MSU as a direct PhD student in 2021, I worked in the industry for 4 years. Alongside my PhD, I also completed my master's degree at MSU. My research focuses on Computer Vision, Biometrics, and Pattern Recognition.</p> -->
-    </div>
+    <!-- Intro -->
+    <section class="intro">
+      <p>Welcome to my webpage! My name is Parisa Farmanifard, a Ph.D. student in the Department of Computer Science and Engineering at Michigan State University, where I conduct research in the <a href="https://iprobe.cse.msu.edu/index.php">iPRoBe Lab</a> under the guidance of <a href="https://scholar.google.com/citations?user=7IiUQDkAAAAJ&hl=en">Dr. Arun Ross</a>. I also earned my M.S. in Computer Science from MSU. My research focuses on biometrics, particularly iris recognition and presentation attack detection, with a growing emphasis on integrating foundation models (FMs) and large language models (LLMs) into biometric systems.</p>
+    </section>
 
-    <div class="social-links">
-      <a href="https://scholar.google.com/citations?user=q6iHSi8AAAAJ&hl=en&authuser=3" target="_blank">
-        <img src="images/googlescholar.png" alt="Google Scholar">
-      </a>
-      <a href="https://github.com/ParisaFarmanifard" target="_blank">
-        <img src="images/github_icon.svg" alt="GitHub">
-      </a>
-      <a href="https://www.linkedin.com/in/parisaf/" target="_blank">
-        <img src="images/linkedin_logo_icon.svg" alt="LinkedIn">
-      </a>
-    </div>
-
-    <div class="section">
+    <!-- Publications (updated) -->
+    <section class="section" id="publications">
       <h3>Publications</h3>
-      <p style="text-align: justify;"> 
-   [2025] Redwan Sony, <strong>Parisa Farmanifard</strong>, Arun Ross, Anil K Jain,<a href="https://arxiv.org/abs/2507.03541"><em>"Foundation versus Domain-specific Models: Performance Comparison, Fusion, and Explainability in Face Recognition"</em></a> ,IEEE/CVF International Conference on Computer Vision Workshops (ICCVW), (Honolulu, Hawai'i), October 2025.</p>
-      <p style="text-align: justify;"> 
-   [2025] Redwan Sony, <strong>Parisa Farmanifard</strong>, Hamzeh Alzwairy, Nitish Shukla, Arun Ross,<a href="https://arxiv.org/pdf/2505.24214?"><em>"Benchmarking Foundation Models for Zero-Shot Biometric Tasks"</em></a> , [Under Review].</p>
-      <p style="text-align: justify;"> 
-   [2025] Rasel Ahmed Bhuyian, <strong>Parisa Farmanifard</strong>, Renu Sharma, Andrey Kuehlkamp, Aidan Boyd, Patrick J Flynn, Kevin W Bowyer, Arun Ross, Dennis Chute, Adam Czajka,<a href="https://ieeexplore.ieee.org/abstract/document/11063436"><em>"Beyond Mortality: Advancements in Post-Mortem Iris Recognition through Data Collection and Computer-Aided Forensic Examination"</em></a> ,IEEE Transactions on Biometrics, Behavior, and Identity Science.</p>
-      <p style="text-align: justify;"> 
-   [2024] <strong>Parisa Farmanifard</strong> and Arun Ross,<a href="https://arxiv.org/abs/2408.04868"><em>"ChatGPT Meets Iris Biometrics"</em></a> ,Proc. of International Joint Conference on Biometrics (IJCB), (Buffalo, USA), September 2024 [Oral]. </p>
-      <p style="text-align: justify;"> 
-   [2024] <strong>Parisa Farmanifard</strong> and Arun Ross,<a href="https://arxiv.org/abs/2402.06497"><em>"Iris-SAM: Iris Segmentation Using a Foundation Model"</em></a> ,Proc. of 4th International Conference on Pattern Recognition and Artificial Intelligence (ICPRAI), (Jeju Island, South Korea), July 2024 [Oral].</p>
-    </div>
+      <div class="pub">
 
-    <div class="section">
+        <div class="pub-item">
+          <p>[2025] M. Mitcheff, A. Hossain, S. Webster, S.K. Karim, K. Roszczewska, J. Tapia, F. Stockhardt, J. Gonzalez-Soler, J.-Y. Lim, M. Pollok, F. Kreuzer, C. Wang, L. Li, F. Guo, J. Gu, D. Pal, <strong><u>P. Farmanifard</u></strong>, et al., <em>"Iris Liveness Detection Competition (LivDet-Iris) – The 2025 Edition"</em>, Proc. of IEEE International Joint Conference on Biometrics (IJCB), 2025. <a href="https://github.com/CVRL/livdet-iris-2025?tab=readme-ov-file" target="_blank" rel="noopener">[Competition]</a></p>
+        </div>
+
+        <div class="pub-item">
+          <p>[2025] Redwan Sony, <strong>Parisa Farmanifard</strong>, Arun Ross, Anil K Jain, <a href="https://arxiv.org/abs/2507.03541" target="_blank" rel="noopener"><em>"Foundation versus Domain-specific Models: Performance Comparison, Fusion, and Explainability in Face Recognition"</em></a>, IEEE/CVF International Conference on Computer Vision Workshops (ICCVW), (Honolulu, Hawai'i), October 2025.</p>
+        </div>
+
+        <div class="pub-item">
+          <p>[2025] Redwan Sony, <strong>Parisa Farmanifard</strong>, Hamzeh Alzwairy, Nitish Shukla, Arun Ross, <a href="https://arxiv.org/abs/2505.24214" target="_blank" rel="noopener"><em>"Benchmarking Foundation Models for Zero-Shot Biometric Tasks"</em></a>, [Under Review].</p>
+        </div>
+
+        <div class="pub-item">
+          <p>[2025] Rasel Ahmed Bhuyian, <strong>Parisa Farmanifard</strong>, Renu Sharma, Andrey Kuehlkamp, Aidan Boyd, Patrick J Flynn, Kevin W Bowyer, Arun Ross, Dennis Chute, Adam Czajka, <a href="https://ieeexplore.ieee.org/abstract/document/11063436" target="_blank" rel="noopener"><em>"Beyond Mortality: Advancements in Post-Mortem Iris Recognition through Data Collection and Computer-Aided Forensic Examination"</em></a>, IEEE Transactions on Biometrics, Behavior, and Identity Science.</p>
+        </div>
+
+        <div class="pub-item">
+          <p>[2024] <strong>Parisa Farmanifard</strong> and Arun Ross, <a href="https://arxiv.org/abs/2408.04868" target="_blank" rel="noopener"><em>"ChatGPT Meets Iris Biometrics"</em></a>, Proc. of International Joint Conference on Biometrics (IJCB), (Buffalo, USA), September 2024 [Oral].</p>
+        </div>
+
+        <div class="pub-item">
+          <p>[2024] <strong>Parisa Farmanifard</strong> and Arun Ross, <a href="https://arxiv.org/abs/2402.06497" target="_blank" rel="noopener"><em>"Iris-SAM: Iris Segmentation Using a Foundation Model"</em></a>, Proc. of 4th International Conference on Pattern Recognition and Artificial Intelligence (ICPRAI), (Jeju Island, South Korea), July 2024 [Oral].</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section" id="projects">
       <h3>Projects</h3>
 
-      <div class="project PAD">
-        <h4> Iris Presentation Attack Detection (PAD) </h4>
-        <p style="text-align: justify;"> 
-        Currently, working on improving the detection of contact lenses in iris images to prevent fraud in iris recognition systems. Specifically, I use deep learning models to distinguish between natural irises and those altered by clear or patterned contact lenses, aiming to boost the security of these biometric systems.
-        </p>
+      <!-- PAD -->
+      <div class="project">
+        <h4>Iris Presentation Attack Detection (PAD)</h4>
+        <div class="proj-body">
+          <!-- Replace src with your framework image -->
+          <figure class="frame" data-lightbox="images/projects/pad_framework.png" aria-label="PAD framework image">
+            <img src="images/projects/pad_framework.png" alt="PAD framework diagram (clear vs patterned lens detection)">
+          </figure>
+          <div>
+            <p>Currently, working on improving the detection of contact lenses in iris images to prevent fraud in iris recognition systems. Specifically, I use deep learning models to distinguish between natural irises and those altered by clear or patterned contact lenses, aiming to boost the security of these biometric systems.</p>
+          </div>
+        </div>
       </div>
 
-      <div class="project chatgpt-iris-biometrics">
+      <!-- ChatGPT Meets Iris -->
+      <div class="project">
         <h4>ChatGPT Meets Iris Biometrics</h4>
-        <p style="text-align: justify;"> 
-        This study utilizes the advanced capabilities of the GPT4 multimodal Large Language Model (LLM) to explore its potential in iris recognition — a field less common and more specialized than face recognition. By focusing on this niche yet crucial area, we investigate how well AI tools like ChatGPT can understand and analyze iris images. Through a
-        series of meticulously designed experiments employing a zero-shot learning approach, the capabilities of ChatGPT-4 was assessed across various challenging conditions including diverse datasets, presentation attacks, occlusions such as glasses, and other real-world variations. The findings
-        convey ChatGPT-4’s remarkable adaptability and precision, revealing its proficiency in identifying distinctive iris features, while also detecting subtle effects like makeup on iris recognition. A comparative analysis with Gemini Advanced – Google’s AI model – highlighted ChatGPT-4’s
-        better performance and user experience in complex iris analysis tasks. This research not only validates the use of LLMs for specialized biometric applications but also emphasizes the importance of nuanced query framing and interaction design in extracting significant insights from biometric data.
-        Our findings suggest a promising path for future research and the development of more adaptable, efficient, robust and interactive biometric security solutions.
-        </p>
+        <div class="proj-body">
+          <figure class="frame" data-lightbox="images/projects/chatgpt_iris_framework.png" aria-label="ChatGPT-Iris framework image">
+            <img src="images/projects/chatgpt_iris_framework.png" alt="Framework diagram for ChatGPT-based iris verification">
+          </figure>
+          <div>
+            <p>This study utilizes the advanced capabilities of the GPT4 multimodal Large Language Model (LLM) to explore its potential in iris recognition — a field less common and more specialized than face recognition. By focusing on this niche yet crucial area, we investigate how well AI tools like ChatGPT can understand and analyze iris images. Through a
+            series of meticulously designed experiments employing a zero-shot learning approach, the capabilities of ChatGPT-4 was assessed across various challenging conditions including diverse datasets, presentation attacks, occlusions such as glasses, and other real-world variations. The findings
+            convey ChatGPT-4’s remarkable adaptability and precision, revealing its proficiency in identifying distinctive iris features, while also detecting subtle effects like makeup on iris recognition. A comparative analysis with Gemini Advanced – Google’s AI model – highlighted ChatGPT-4’s
+            better performance and user experience in complex iris analysis tasks. This research not only validates the use of LLMs for specialized biometric applications but also emphasizes the importance of nuanced query framing and interaction design in extracting significant insights from biometric data.
+            Our findings suggest a promising path for future research and the development of more adaptable, efficient, robust and interactive biometric security solutions.</p>
+          </div>
+        </div>
       </div>
 
-      <div class="project iris-sam-segmentation">
+      <!-- Iris-SAM -->
+      <div class="project">
         <h4>Iris-SAM: Iris Segmentation Using a Foundation Model</h4>
-        <p style="text-align: justify;"> 
-        Iris segmentation is a critical component of an iris biometric system and it involves extracting the annular iris region from an ocular image. In this work, we develop a pixel-level iris segmentation model from a foundation model, viz., Segment Anything Model (SAM), that
-        has been successfully used for segmenting arbitrary objects. The primary contribution of this work lies in the integration of different loss functions during the fine-tuning of SAM on ocular images. In particular, the importance of Focal Loss is borne out in the fine-tuning process since it
-        strategically addresses the class imbalance problem (i.e., iris versus noniris pixels). Experiments on ND-IRIS-0405, CASIA-Iris-Interval-v3, and IIT-Delhi-Iris datasets convey the efficacy of the trained model for the task of iris segmentation. For instance, on the ND-IRIS-0405 dataset, an
-        average segmentation accuracy of 99.58% was achieved, compared to the best baseline performance of 89.75%.
-        </p>
-        <a href="https://github.com/ParisaFarmanifard/Iris-SAM" target="_blank">View on GitHub</a>
+        <div class="proj-body">
+          <figure class="frame" data-lightbox="images/projects/iris_sam_framework.png" aria-label="Iris-SAM framework image">
+            <img src="images/projects/iris_sam_framework.png" alt="Iris-SAM segmentation pipeline diagram">
+          </figure>
+          <div>
+            <p>Iris segmentation is a critical component of an iris biometric system and it involves extracting the annular iris region from an ocular image. In this work, we develop a pixel-level iris segmentation model from a foundation model, viz., Segment Anything Model (SAM), that
+            has been successfully used for segmenting arbitrary objects. The primary contribution of this work lies in the integration of different loss functions during the fine-tuning of SAM on ocular images. In particular, the importance of Focal Loss is borne out in the fine-tuning process since it
+            strategically addresses the class imbalance problem (i.e., iris versus noniris pixels). Experiments on ND-IRIS-0405, CASIA-Iris-Interval-v3, and IIT-Delhi-Iris datasets convey the efficacy of the trained model for the task of iris segmentation. For instance, on the ND-IRIS-0405 dataset, an
+            average segmentation accuracy of 99.58% was achieved, compared to the best baseline performance of 89.75%.</p>
+            <p><a href="https://github.com/ParisaFarmanifard/Iris-SAM" target="_blank" rel="noopener">View on GitHub</a></p>
+          </div>
+        </div>
       </div>
 
-      <div class="project gans">
-        <h4> Cross-Spectral Face Recognition Using Generative Adversarial Networks (GANs)</h4>
-        <p style="text-align: justify;"> 
-        Cross-spectral Face Recognition (CFR) refers to the task of identifying matching features between two images of the same person captured in two different spectral bands. This involves recognizing faces across different imaging modalities such as visible, infrared, or depth maps. In this study, 
-        we used ArcFace to calculate match scores between images taken from different spectral bands. We first computed similarity scores between original images of the same identity captured in SWIR and VIS, and then compared them with similarities between synthesized VIS images and the 
-        original VIS/SWIR images using SG-GAN. Our results showed that using ArcFace led to the best performance for both synthesized and original images. This was because the similarity scores were well-separated in the histogram, indicating high discrimination between different identities. However, the performance of outdoor image analysis can be improved by applying image enhancement methods that address issues such as low contrast, noise, or illumination variations.</p>
+      <!-- Cross-Spectral Face Recognition -->
+      <div class="project">
+        <h4>Cross-Spectral Face Recognition Using Generative Adversarial Networks (GANs)</h4>
+        <div class="proj-body">
+          <figure class="frame" data-lightbox="images/projects/cross_spectral_framework.png" aria-label="Cross-spectral framework image">
+            <img src="images/projects/cross_spectral_framework.png" alt="Cross-spectral face recognition framework diagram">
+          </figure>
+          <div>
+            <p>Cross-spectral Face Recognition (CFR) refers to the task of identifying matching features between two images of the same person captured in two different spectral bands. This involves recognizing faces across different imaging modalities such as visible, infrared, or depth maps. In this study, 
+            we used ArcFace to calculate match scores between images taken from different spectral bands. We first computed similarity scores between original images of the same identity captured in SWIR and VIS, and then compared them with similarities between synthesized VIS images and the 
+            original VIS/SWIR images using SG-GAN. Our results showed that using ArcFace led to the best performance for both synthesized and original images. This was because the similarity scores were well-separated in the histogram, indicating high discrimination between different identities. However, the performance of outdoor image analysis can be improved by applying image enhancement methods that address issues such as low contrast, noise, or illumination variations.</p>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <div class="section">
+    </section>
+
+    <!-- Posters -->
+    <section class="section">
       <h3>Poster Presentations</h3>
       <ul>
         <li>"ChatGPT Meets Iris Biometrics", IJCB 2024 (Buffalo, NY).</li>
         <li>"Iris-SAM: Iris Segmentation Using a Foundation Model", Engineering Graduate Research Symposium 2024 (MSU).</li>
         <li>"Cross-Spectral Face Recognition Using a Semantic-Guided GAN", Engineering Graduate Research Symposium 2023 (MSU).</li>
       </ul>
-    </div>
+    </section>
 
-    <div class="section">
+    <!-- Education -->
+    <section class="section">
       <h3>Education</h3>
       <ul>
-        <li> [2021 - Present] Doctor of Philosophy (Ph.D.), Computer Science, Michigan State University, USA.</li>
-        <li> [2021 - 2023] Master of Science (MS), Computer Science, Michigan State University, USA.</li>
-        <li> [2013 - 2017] Bachelor of Engineering (B.E.), IT Engineering.</li>
+        <li>[2021 - Present] Doctor of Philosophy (Ph.D.), Computer Science, Michigan State University, USA.</li>
+        <li>[2021 - 2023] Master of Science (MS), Computer Science, Michigan State University, USA.</li>
+        <li>[2013 - 2017] Bachelor of Engineering (B.E.), IT Engineering.</li>
       </ul>
-    </div>
+    </section>
 
-    <div class="section">
+    <!-- Internship -->
+    <section class="section">
       <h3>Internship Experience</h3>
       <ul>
         <li>In the summer of 2023, I had an internship experience at <a href="https://www.aep.com/">American Electric Power (AEP)</a>, working with their emerging technology group. My role involved a project on <em>"drone-based pole detection"</em>, collaborating closely with a computer vision and machine learning group. During my internship, I have worked with various detection methods, including <strong>Detectron2, Yolov4, Yolov8</strong>, and the <strong>Segment Anything Model (SAM)</strong>, primarily focusing on drone images.</li>
       </ul>
-    </div>
+    </section>
 
     <footer>
-      <p>Contact Info: <a href="mailto:parisa.farmanifard@gmail.com"><em>parisa.farmanifard@gmail.com</em></a></p>
+      <p>Contact: <a href="mailto:parisa.farmanifard@gmail.com"><em>parisa.farmanifard@gmail.com</em></a></p>
     </footer>
-
-    <br>
   </div>
+
+  <!-- Minimal lightbox logic (no libraries) -->
+  <dialog class="lightbox" id="lightbox">
+    <img class="lightbox-img" id="lightboxImg" alt="Framework preview">
+  </dialog>
+  <script>
+    // Click any .frame to open its image in a native <dialog> lightbox
+    const dialog = document.getElementById('lightbox');
+    const dialogImg = document.getElementById('lightboxImg');
+    document.querySelectorAll('.frame').forEach(frame => {
+      const src = frame.getAttribute('data-lightbox');
+      frame.addEventListener('click', () => {
+        dialogImg.src = src;
+        dialog.showModal();
+      });
+    });
+    dialog.addEventListener('click', e => {
+      const rect = dialogImg.getBoundingClientRect();
+      const clickedOutside = e.clientX < rect.left || e.clientX > rect.right || e.clientY < rect.top || e.clientY > rect.bottom;
+      if(clickedOutside){ dialog.close(); dialogImg.src = ""; }
+    });
+    document.addEventListener('keydown', e => { if(e.key === 'Escape' && dialog.open){ dialog.close(); dialogImg.src=""; } });
+  </script>
 </body>
 </html>
