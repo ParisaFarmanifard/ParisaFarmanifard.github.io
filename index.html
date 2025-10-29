@@ -190,18 +190,20 @@
     .proj-body{
       display:grid; gap: 14px;
       grid-template-columns: 1fr;
+      align-items: start; /* ensure columns align from the top */
     }
 
     /* Framework image frame + lightbox hook (light theme) */
     .frame{
       position: relative; width: 100%;
-      aspect-ratio: 16 / 9;
+      /* removed fixed aspect-ratio to let image decide height */
       border:1px solid var(--line);
       border-radius: 12px;
       overflow: hidden;
       background: #f6f9ff;
       box-shadow: inset 0 1px 0 rgba(15,23,42,.04);
       cursor: zoom-in;
+      margin: 0;
     }
     .frame::after{
       /* subtle multicolor bar at the top of images */
@@ -210,8 +212,13 @@
       opacity:.75;
     }
     .frame img{
-      position:absolute; inset:0; width:100%; height:100%;
-      object-fit: cover; object-position: center;
+      /* FIX: no absolute positioning; no cropping */
+      position: static; 
+      display: block;
+      width: 100%;
+      height: auto;              /* preserve natural aspect */
+      object-fit: contain;       /* show full diagram */
+      object-position: center;
       transition: transform .35s ease, filter .35s ease;
     }
     .frame:hover img{ transform: scale(1.02); filter: saturate(1.06) contrast(1.02); }
@@ -237,6 +244,7 @@
       max-width: 94vw; max-height: 90vh; display:block;
       border-radius: 12px; border:1px solid var(--line);
       box-shadow: 0 30px 70px rgba(16,24,40,.20);
+      object-fit: contain;      /* keep full image in lightbox too */
     }
 
     /* Responsive */
@@ -254,17 +262,17 @@
 
     <!-- Header -->
     <header class="header">
-      <img class="avatar" src="images/parisa_july2025.jpg" alt="Parisa Farmanifard">
+      <img class="avatar" src="images/parisa_july2025.jpg" alt="Parisa Farmanifard" loading="lazy">
       <h1>Parisa Farmanifard</h1>
       <nav class="social" aria-label="Profiles">
         <a href="https://scholar.google.com/citations?user=q6iHSi8AAAAJ&hl=en&authuser=3" target="_blank" rel="noopener">
-          <img src="images/googlescholar.png" alt="Google Scholar">
+          <img src="images/googlescholar.png" alt="Google Scholar" loading="lazy">
         </a>
         <a href="https://github.com/ParisaFarmanifard" target="_blank" rel="noopener">
-          <img src="images/github_icon.svg" alt="GitHub">
+          <img src="images/github_icon.svg" alt="GitHub" loading="lazy">
         </a>
         <a href="https://www.linkedin.com/in/parisaf/" target="_blank" rel="noopener">
-          <img src="images/linkedin_logo_icon.svg" alt="LinkedIn">
+          <img src="images/linkedin_logo_icon.svg" alt="LinkedIn" loading="lazy">
         </a>
       </nav>
     </header>
@@ -307,7 +315,7 @@
         <h4>Iris Presentation Attack Detection (PAD)</h4>
         <div class="proj-body">
           <figure class="frame" data-lightbox="images/projects/pad_framework.png" aria-label="PAD framework image">
-            <img src="images/pad_framework.png" alt="PAD framework diagram (clear vs patterned lens detection)">
+            <img src="images/pad_framework.png" alt="PAD framework diagram (clear vs patterned lens detection)" loading="lazy">
           </figure>
           <div>
             <p>Currently, working on improving the detection of contact lenses in iris images to prevent fraud in iris recognition systems. Specifically, I use deep learning models to distinguish between natural irises and those altered by clear or patterned contact lenses, aiming to boost the security of these biometric systems.</p>
@@ -319,7 +327,7 @@
         <h4>ChatGPT Meets Iris Biometrics</h4>
         <div class="proj-body">
           <figure class="frame" data-lightbox="images/projects/chatgpt_iris_framework.png" aria-label="ChatGPT-Iris framework image">
-            <img src="images/projects/chatgpt_iris_framework.png" alt="Framework diagram for ChatGPT-based iris verification">
+            <img src="images/projects/chatgpt_iris_framework.png" alt="Framework diagram for ChatGPT-based iris verification" loading="lazy">
           </figure>
           <div>
             <p>This study utilizes the advanced capabilities of the GPT4 multimodal Large Language Model (LLM) to explore its potential in iris recognition — a field less common and more specialized than face recognition. By focusing on this niche yet crucial area, we investigate how well AI tools like ChatGPT can understand and analyze iris images. Through a
@@ -335,7 +343,7 @@
         <h4>Iris-SAM: Iris Segmentation Using a Foundation Model</h4>
         <div class="proj-body">
           <figure class="frame" data-lightbox="images/projects/iris_sam_framework.png" aria-label="Iris-SAM framework image">
-            <img src="images/projects/iris_sam_framework.png" alt="Iris-SAM segmentation pipeline diagram">
+            <img src="images/projects/iris_sam_framework.png" alt="Iris-SAM segmentation pipeline diagram" loading="lazy">
           </figure>
           <div>
             <p>Iris segmentation is a critical component of an iris biometric system and it involves extracting the annular iris region from an ocular image. In this work, we develop a pixel-level iris segmentation model from a foundation model, viz., Segment Anything Model (SAM), that
@@ -351,7 +359,7 @@
         <h4>Cross-Spectral Face Recognition Using Generative Adversarial Networks (GANs)</h4>
         <div class="proj-body">
           <figure class="frame" data-lightbox="images/projects/cross_spectral_framework.png" aria-label="Cross-spectral framework image">
-            <img src="images/projects/cross_spectral_framework.png" alt="Cross-spectral face recognition framework diagram">
+            <img src="images/projects/cross_spectral_framework.png" alt="Cross-spectral face recognition framework diagram" loading="lazy">
           </figure>
           <div>
             <p>Cross-spectral Face Recognition (CFR) refers to the task of identifying matching features between two images of the same person captured in two different spectral bands. This involves recognizing faces across different imaging modalities such as visible, infrared, or depth maps. In this study, 
