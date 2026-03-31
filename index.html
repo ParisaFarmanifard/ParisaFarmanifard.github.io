@@ -2,430 +2,673 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Parisa Farmanifard</title>
+  <title>Parisa Farmanifard — Biometrics Researcher</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Type pairing: Inter + Libre Baskerville -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
+  <meta name="description" content="Parisa Farmanifard — Ph.D. student in Computer Science at Michigan State University, specializing in biometrics, iris recognition, and foundation models." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet" />
   <style>
-    :root{
-      /* Light palette — tweak these for quick rebranding */
-      --page: #ffffff;             /* page background */
-      --paper: #ffffff;            /* card background */
-      --ink: #17223b;              /* primary text */
-      --muted: #4b5b76;           /* secondary text */
-      --line: #e7ecf3;            /* card borders */
-      --ring: rgba(31,122,255,.22);
-
-      /* Cheerful accent set (used subtly for “colorful” feel) */
-      --accent: #1f7aff;          /* blue */
-      --accent-2: #7c3aed;        /* purple */
-      --accent-3: #10b981;        /* green */
-      --accent-4: #f59e0b;        /* amber */
-      --accent-5: #ef4444;        /* red */
-
-      /* Shadows & radii */
-      --shadow-sm: 0 1px 2px rgba(16,24,40,.06);
-      --shadow-md: 0 4px 14px rgba(16,24,40,.10);
-      --shadow-lg: 0 10px 24px rgba(16,24,40,.12);
-      --radius-lg: 18px;
-      --radius-md: 12px;
-
-      /* Hero gradient */
-      --hero-grad: radial-gradient(1000px 600px at 10% 0%, rgba(31,122,255,.18), transparent 55%),
-                   radial-gradient(800px 500px at 90% 0%, rgba(124,58,237,.16), transparent 60%),
-                   linear-gradient(180deg, #f7fbff 0%, #ffffff 60%, #ffffff 100%);
-      --stripe: linear-gradient(90deg,
-                  rgba(31,122,255,.18), rgba(31,122,255,0) 22%,
-                  rgba(124,58,237,.18) 22%, rgba(124,58,237,0) 44%,
-                  rgba(16,185,129,.18) 44%, rgba(16,185,129,0) 66%,
-                  rgba(245,158,11,.18) 66%, rgba(245,158,11,0) 88%,
-                  rgba(239,68,68,.18) 88%, rgba(239,68,68,0) 100%);
+    /* ── Tokens ─────────────────────────────────────────────── */
+    :root {
+      --bg:          #f7f9fc;
+      --surface:     #ffffff;
+      --surface-2:   #f0f4f9;
+      --text:        #0d1526;
+      --text-2:      #4a5568;
+      --text-3:      #6b7280;
+      --border:      #dde3ed;
+      --blue:        #1a56db;
+      --blue-hover:  #1741b0;
+      --blue-tint:   #eff6ff;
+      --blue-ring:   rgba(26,86,219,.18);
+      --radius:      14px;
+      --shadow:      0 1px 3px rgba(13,21,38,.06), 0 4px 18px rgba(13,21,38,.09);
+      --shadow-sm:   0 1px 2px rgba(13,21,38,.05);
+      --shadow-hover:0 8px 28px rgba(13,21,38,.13);
     }
 
-    *{ box-sizing: border-box; }
-    html, body{ height:100%; }
-    body{
-      margin:0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      color: var(--ink);
-      background: var(--hero-grad);
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { color: var(--blue-hover); text-decoration: underline; }
+    p { margin-bottom: 10px; }
+    p:last-child { margin-bottom: 0; }
+    strong { font-weight: 600; }
 
-    a{ color: var(--accent); text-decoration: none; }
-    a:hover{ color: #0b63e6; text-decoration: underline; }
+    /* ── Navigation ─────────────────────────────────────────── */
+    .nav {
+      position: sticky; top: 0; z-index: 50;
+      height: 56px;
+      background: rgba(247,249,252,.88);
+      backdrop-filter: blur(16px) saturate(1.3);
+      -webkit-backdrop-filter: blur(16px) saturate(1.3);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 28px;
+    }
+    .nav-brand {
+      font-size: 14.5px; font-weight: 700; color: var(--text);
+      letter-spacing: -.2px; white-space: nowrap;
+    }
+    .nav-links {
+      display: flex; gap: 28px; list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-2); font-size: 13.5px; font-weight: 500;
+      transition: color .18s;
+    }
+    .nav-links a:hover { color: var(--blue); text-decoration: none; }
 
-    .wrap{
-      max-width: 1024px;
-      margin: 0 auto;
-      padding: 28px 18px 80px;
-    }
+    /* ── Page wrapper ────────────────────────────────────────── */
+    .page { max-width: 1020px; margin: 0 auto; padding: 0 24px 80px; }
 
-    /* Header */
-    .header{
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      background: var(--paper);
-      box-shadow: var(--shadow-md);
-      padding: 34px 22px 22px;
-      text-align: center;
-      position: relative; overflow: hidden; isolation: isolate;
+    /* ── Hero ────────────────────────────────────────────────── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 52px;
+      align-items: center;
+      padding: 56px 0 44px;
     }
-    .header::after{
-      /* subtle, colorful diagonal stripes in the header background */
-      content:"";
-      position:absolute; inset:0;
-      background: var(--stripe);
-      opacity: .35;
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,0.06) 65%, transparent 90%);
-      pointer-events:none; z-index:0;
+    .hero-name {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(34px, 4.8vw, 54px);
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.12;
+      letter-spacing: -.5px;
+      margin-bottom: 8px;
     }
+    .hero-role {
+      font-size: 17px; color: var(--text-2); font-weight: 400;
+      margin-bottom: 4px;
+    }
+    .hero-inst {
+      font-size: 14.5px; color: var(--text-3); margin-bottom: 22px;
+    }
+    .hero-inst a { color: var(--text-3); font-weight: 500; }
+    .hero-inst a:hover { color: var(--blue); }
 
-    .avatar{
-      width: 160px; height:160px; border-radius: 50%;
-      object-fit: cover;
-      display:block; margin: 2px auto 14px;
-      box-shadow: 0 10px 24px rgba(16,24,40,.22), 0 0 0 6px rgba(31,122,255,.08);
-      transition: transform .3s ease, box-shadow .3s ease;
-      position: relative; z-index: 1;
+    /* Research interest pills */
+    .pill-row {
+      display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 26px;
     }
-    .avatar:hover{ transform: translateY(-2px); box-shadow: 0 14px 30px rgba(16,24,40,.26), 0 0 0 8px rgba(31,122,255,.12); }
+    .pill {
+      padding: 4px 13px; border-radius: 999px;
+      font-size: 12.5px; font-weight: 500;
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+    .pill-blue   { background: var(--blue-tint); color: var(--blue);   border-color: rgba(26,86,219,.2); }
+    .pill-purple { background: #f3e8ff; color: #6d28d9; border-color: rgba(109,40,217,.2); }
+    .pill-green  { background: #ecfdf5; color: #047857; border-color: rgba(4,120,87,.2); }
+    .pill-amber  { background: #fffbeb; color: #b45309; border-color: rgba(180,83,9,.2); }
 
-    h1{
-      margin: 6px 0 6px;
-      font-family: "Libre Baskerville", Georgia, serif;
-      font-weight: 700;
-      font-size: clamp(30px, 4.6vw, 44px);
-      letter-spacing: .2px;
-      color:#0d1b2a;
-      position: relative; z-index: 1;
-    }
-
-    .social{
-      display:flex; justify-content:center; align-items:center; gap:16px; margin: 14px 0 0;
-      position: relative; z-index: 1;
-    }
-    .social a{
-      width:48px; height:48px; border-radius: 12px;
-      border:1px solid var(--line);
-      background: #ffffff;
-      display:flex; align-items:center; justify-content:center;
+    /* Social icons */
+    .social-row { display: flex; gap: 9px; }
+    .social-row a {
+      display: flex; align-items: center; justify-content: center;
+      width: 44px; height: 44px; border-radius: 10px;
+      background: var(--surface); border: 1px solid var(--border);
       box-shadow: var(--shadow-sm);
-      transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+      transition: transform .2s, border-color .2s, box-shadow .2s;
     }
-    .social a:hover{
+    .social-row a:hover {
       transform: translateY(-2px);
-      border-color: rgba(31,122,255,.35);
-      box-shadow: var(--shadow-md);
+      border-color: rgba(26,86,219,.3);
+      box-shadow: 0 4px 14px rgba(26,86,219,.15);
     }
-    .social img{ width:26px; height:26px; }
+    .social-row img { width: 22px; height: 22px; object-fit: contain; }
 
-    /* Intro */
-    .intro{
-      margin-top: 20px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-md);
-      background: var(--paper);
-      box-shadow: var(--shadow-sm);
-      padding: 18px 20px;
+    /* Avatar */
+    .avatar-wrap { flex-shrink: 0; }
+    .avatar {
+      width: 196px; height: 196px; border-radius: 50%;
+      object-fit: cover; display: block;
+      border: 4px solid var(--surface);
+      box-shadow: 0 6px 28px rgba(13,21,38,.18), 0 0 0 1px var(--border);
+      transition: transform .3s, box-shadow .3s;
     }
-    p{ margin: 0 0 10px; text-align: justify; color: var(--ink); }
-
-    /* Section */
-    .section{
-      margin-top: 26px;
-      border:1px solid var(--line);
-      border-radius: var(--radius-lg);
-      background: var(--paper);
-      box-shadow: var(--shadow-md);
-      padding: 20px 20px;
-    }
-    .section h3{
-      margin: 0 0 12px;
-      font-weight: 800; color:#0f172a;
-      font-size: clamp(18px, 2.2vw, 22px);
-      display:flex; align-items:center; gap:12px;
-    }
-    .section h3::after{
-      content:""; flex:1; height:2px;
-      background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3), var(--accent-4), var(--accent-5));
-      border-radius: 999px;
-      opacity: .6;
+    .avatar:hover {
+      transform: scale(1.025);
+      box-shadow: 0 10px 36px rgba(13,21,38,.22), 0 0 0 1px var(--border);
     }
 
-    /* Publications list */
-    .pub{ display:grid; gap: 12px; }
-    .pub-item{ position: relative; padding-left: 18px; }
-    .pub-item::before{
-      content:""; position:absolute; left:0; top:.9em;
-      width:10px; height:10px; border-radius:50%;
-      background: var(--accent);
-      box-shadow:
-        0 0 0 4px rgba(31,122,255,.18),
-        16px 0 0 -6px var(--accent-2),
-        28px 0 0 -10px var(--accent-3);
-      opacity:.95;
+    /* ── Section card ────────────────────────────────────────── */
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px 32px;
+      margin-top: 22px;
     }
-    .pub-meta{ color: var(--muted); font-size: 14px; }
+    .sec-head {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 22px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .sec-head h2 {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 20px; font-weight: 700;
+      color: var(--text);
+      line-height: 1.2;
+    }
+    .sec-head::after {
+      content: ""; flex: 1; height: 1px;
+      background: linear-gradient(90deg, var(--border), transparent);
+    }
+    .sec-accent {
+      width: 6px; height: 22px; border-radius: 3px;
+      background: linear-gradient(180deg, var(--blue), #7c3aed);
+      flex-shrink: 0;
+    }
 
-    /* Grid projects */
-    .grid{ display:grid; gap: 16px; grid-template-columns: repeat(12, 1fr); }
-    .project{
-      grid-column: 1 / -1;
-      border:1px solid var(--line);
-      border-radius: var(--radius-md);
-      background: var(--paper);
-      box-shadow: var(--shadow-md);
-      padding: 16px;
-      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    /* ── About ───────────────────────────────────────────────── */
+    .about-text {
+      font-size: 15.5px; color: var(--text-2); line-height: 1.82;
     }
-    .project:hover{
+
+    /* ── Publications ────────────────────────────────────────── */
+    .pub-list { display: flex; flex-direction: column; }
+    .pub-item {
+      padding: 16px 0 16px 16px;
+      border-left: 3px solid var(--border);
+      margin-bottom: 14px;
+      transition: border-color .2s;
+    }
+    .pub-item:last-child { margin-bottom: 0; }
+    .pub-item:hover { border-left-color: var(--blue); }
+    .pub-title {
+      font-size: 15.5px; font-weight: 600; color: var(--text);
+      line-height: 1.5; margin-bottom: 4px;
+    }
+    .pub-title a { color: var(--text); }
+    .pub-title a:hover { color: var(--blue); text-decoration: none; }
+    .pub-authors {
+      font-size: 13.5px; color: var(--text-3); margin-bottom: 8px;
+      line-height: 1.6;
+    }
+    .pub-meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+    .badge {
+      display: inline-block; padding: 2px 9px; border-radius: 5px;
+      font-size: 12px; font-weight: 600; letter-spacing: .2px;
+    }
+    .b-year   { background: var(--surface-2); color: var(--text-3); }
+    .b-venue  { background: var(--blue-tint); color: var(--blue); }
+    .b-oral   { background: #fef3c7; color: #92400e; }
+    .b-review { background: #fff7ed; color: #c2410c; }
+    .b-link   { font-size: 13px; font-weight: 500; color: var(--blue); }
+
+    /* ── Projects ────────────────────────────────────────────── */
+    .proj-list { display: flex; flex-direction: column; gap: 18px; }
+    .proj-card {
+      border: 1px solid var(--border);
+      border-radius: 12px; overflow: hidden;
+      display: grid; grid-template-columns: 260px 1fr;
+      transition: box-shadow .25s, transform .25s, border-color .25s;
+    }
+    .proj-card:hover {
+      box-shadow: var(--shadow-hover);
       transform: translateY(-2px);
-      border-color: rgba(31,122,255,.35);
-      box-shadow: var(--shadow-lg);
+      border-color: rgba(26,86,219,.26);
     }
-    .project h4{ margin: 0 0 6px; color:#0f172a; }
+    .proj-img {
+      position: relative; cursor: zoom-in; overflow: hidden;
+      background: var(--surface-2); display: block;
+    }
+    .proj-img img {
+      width: 100%; height: 100%;
+      object-fit: contain; display: block;
+      transition: transform .35s;
+    }
+    .proj-img:hover img { transform: scale(1.04); }
+    .proj-img::after {
+      content: ""; position: absolute; left: 0; top: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--blue), #7c3aed, #059669, #d97706);
+    }
+    .proj-body { padding: 20px 22px; display: flex; flex-direction: column; gap: 10px; }
+    .proj-name {
+      font-size: 16px; font-weight: 700; color: var(--text); line-height: 1.4;
+    }
+    .proj-desc {
+      font-size: 14.5px; color: var(--text-2); line-height: 1.75;
+      flex: 1;
+    }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 6px; }
 
-    .proj-body{
-      display:grid; gap: 14px;
-      grid-template-columns: 1fr;
-      align-items: start; /* ensure columns align from the top */
+    /* ── Presentations ───────────────────────────────────────── */
+    .pres-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .pres-list li {
+      display: flex; gap: 10px; align-items: flex-start;
+      background: var(--surface-2); border-radius: 10px;
+      padding: 12px 16px; font-size: 15px; color: var(--text-2); line-height: 1.65;
     }
-
-    /* Framework image frame + lightbox hook (light theme) */
-    .frame{
-      position: relative; width: 100%;
-      /* removed fixed aspect-ratio to let image decide height */
-      border:1px solid var(--line);
-      border-radius: 12px;
-      overflow: hidden;
-      background: #f6f9ff;
-      box-shadow: inset 0 1px 0 rgba(15,23,42,.04);
-      cursor: zoom-in;
-      margin: 0;
-    }
-    .frame::after{
-      /* subtle multicolor bar at the top of images */
-      content:""; position:absolute; left:0; top:0; right:0; height:4px;
-      background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3), var(--accent-4), var(--accent-5));
-      opacity:.75;
-    }
-    .frame img{
-      /* FIX: no absolute positioning; no cropping */
-      position: static; 
-      display: block;
-      width: 100%;
-      height: auto;              /* preserve natural aspect */
-      object-fit: contain;       /* show full diagram */
-      object-position: center;
-      transition: transform .35s ease, filter .35s ease;
-    }
-    .frame:hover img{ transform: scale(1.02); filter: saturate(1.06) contrast(1.02); }
-
-    /* Footer */
-    footer{
-      margin-top: 26px; text-align:center; padding: 16px;
-      border:1px solid var(--line); border-radius: 12px;
-      background: var(--paper);
-      box-shadow: var(--shadow-sm);
-      font-size: 15px;
+    .pres-list li::before {
+      content: ""; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--blue); margin-top: 8px; flex-shrink: 0;
     }
 
-    /* Lightbox using dialog (light) */
-    dialog.lightbox{
-      padding:0; border: none; background: transparent; max-width: 94vw;
+    /* ── Education timeline ──────────────────────────────────── */
+    .timeline { display: flex; flex-direction: column; }
+    .tl-item {
+      display: grid; grid-template-columns: 52px 1fr;
+      gap: 18px; position: relative; padding-bottom: 22px;
     }
-    dialog::backdrop{
-      background: rgba(15,23,42,.45);
-      backdrop-filter: blur(2px);
+    .tl-item:last-child { padding-bottom: 0; }
+    .tl-item:not(:last-child)::before {
+      content: ""; position: absolute;
+      left: 22px; top: 30px; bottom: 0;
+      width: 2px; background: var(--border);
     }
-    .lightbox-img{
-      max-width: 94vw; max-height: 90vh; display:block;
-      border-radius: 12px; border:1px solid var(--line);
-      box-shadow: 0 30px 70px rgba(16,24,40,.20);
-      object-fit: contain;      /* keep full image in lightbox too */
+    .tl-dot {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--blue-tint); border: 2px solid rgba(26,86,219,.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10.5px; font-weight: 700; color: var(--blue);
+      letter-spacing: .3px; flex-shrink: 0; z-index: 1;
+    }
+    .tl-body {}
+    .tl-degree { font-size: 15.5px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+    .tl-place { font-size: 14px; color: var(--text-3); }
+
+    /* ── Experience ──────────────────────────────────────────── */
+    .exp-card {
+      background: var(--surface-2); border-radius: 12px; padding: 18px 20px;
+    }
+    .exp-top {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      flex-wrap: wrap; gap: 8px; margin-bottom: 4px;
+    }
+    .exp-title { font-size: 16px; font-weight: 700; color: var(--text); }
+    .exp-date {
+      font-size: 13px; font-weight: 500; color: var(--surface);
+      background: var(--blue); padding: 2px 10px; border-radius: 5px;
+    }
+    .exp-org { font-size: 14px; color: var(--blue); margin-bottom: 10px; }
+    .exp-desc { font-size: 14.5px; color: var(--text-2); line-height: 1.75; }
+
+    /* ── Footer ──────────────────────────────────────────────── */
+    footer {
+      margin-top: 28px; padding: 22px 28px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); box-shadow: var(--shadow-sm);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 8px;
+    }
+    footer p { font-size: 14.5px; color: var(--text-3); }
+    footer a { color: var(--blue); }
+
+    /* ── Lightbox ────────────────────────────────────────────── */
+    dialog.lb { padding: 0; border: none; background: transparent; max-width: 95vw; }
+    dialog::backdrop {
+      background: rgba(10,16,32,.7);
+      backdrop-filter: blur(6px);
+    }
+    .lb-img {
+      max-width: 90vw; max-height: 88vh; display: block;
+      border-radius: 12px; box-shadow: 0 32px 80px rgba(0,0,0,.4);
+      object-fit: contain;
     }
 
-    /* Responsive */
-    @media (min-width: 840px){
-      .proj-body{ grid-template-columns: 5fr 7fr; align-items: start; }
+    /* ── Responsive ──────────────────────────────────────────── */
+    @media (max-width: 740px) {
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; gap: 28px; padding: 36px 0 30px; }
+      .avatar-wrap { order: -1; display: flex; justify-content: center; }
+      .avatar { width: 150px; height: 150px; }
+      .section { padding: 20px; }
+      .proj-card { grid-template-columns: 1fr; }
+      .proj-img { height: 190px; }
+      footer { flex-direction: column; text-align: center; }
     }
-    @media (max-width: 640px){
-      .avatar{ width:140px; height:140px; }
-      .section, .intro{ padding:16px; }
+    @media (max-width: 480px) {
+      .page { padding: 0 16px 60px; }
+      .nav { padding: 0 16px; }
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
 
-    <!-- Header -->
-    <header class="header">
-      <img class="avatar" src="images/parisa_july2025.jpg" alt="Parisa Farmanifard" loading="lazy">
-      <h1>Parisa Farmanifard</h1>
-      <nav class="social" aria-label="Profiles">
-        <a href="https://scholar.google.com/citations?user=q6iHSi8AAAAJ&hl=en&authuser=3" target="_blank" rel="noopener">
-          <img src="images/googlescholar.png" alt="Google Scholar" loading="lazy">
-        </a>
-        <a href="https://github.com/ParisaFarmanifard" target="_blank" rel="noopener">
-          <img src="images/github_icon.svg" alt="GitHub" loading="lazy">
-        </a>
-        <a href="https://www.linkedin.com/in/parisaf/" target="_blank" rel="noopener">
-          <img src="images/linkedin_logo_icon.svg" alt="LinkedIn" loading="lazy">
-        </a>
-      </nav>
-    </header>
+  <!-- ── Navigation ───────────────────────────────────────── -->
+  <nav class="nav" aria-label="Site navigation">
+    <span class="nav-brand">Parisa Farmanifard</span>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-    <!-- Intro (text unchanged) -->
-    <section class="intro">
-      <p>Welcome to my webpage! My name is Parisa Farmanifard, a Ph.D. student in the Department of Computer Science and Engineering at Michigan State University, where I conduct research in the <a href="https://iprobe.cse.msu.edu/index.php">iPRoBe Lab</a> under the guidance of <a href="https://scholar.google.com/citations?user=7IiUQDkAAAAJ&hl=en">Dr. Arun Ross</a>. I also earned my M.S. in Computer Science from MSU. My research focuses on biometrics, particularly iris recognition and presentation attack detection, with a growing emphasis on integrating foundation models (FMs) and large language models (LLMs) into biometric systems.</p>
+  <main class="page">
+
+    <!-- ── Hero ─────────────────────────────────────────────── -->
+    <div class="hero" id="about">
+      <div>
+        <h1 class="hero-name">Parisa Farmanifard</h1>
+        <p class="hero-role">Ph.D. Researcher · Biometrics &amp; Computer Vision</p>
+        <p class="hero-inst">
+          <a href="https://iprobe.cse.msu.edu/index.php" target="_blank" rel="noopener">iPRoBe Lab</a>,
+          Michigan State University ·
+          Advisor: <a href="https://scholar.google.com/citations?user=7IiUQDkAAAAJ&hl=en" target="_blank" rel="noopener">Dr. Arun Ross</a>
+        </p>
+
+        <div class="pill-row" aria-label="Research interests">
+          <span class="pill pill-blue">Biometrics</span>
+          <span class="pill pill-purple">Iris Recognition</span>
+          <span class="pill pill-green">Foundation Models</span>
+          <span class="pill pill-amber">Presentation Attack Detection</span>
+          <span class="pill pill-purple">Large Language Models</span>
+        </div>
+
+        <nav class="social-row" aria-label="Profiles">
+          <a href="https://scholar.google.com/citations?user=q6iHSi8AAAAJ&hl=en&authuser=3" target="_blank" rel="noopener" title="Google Scholar">
+            <img src="images/googlescholar.png" alt="Google Scholar" loading="lazy">
+          </a>
+          <a href="https://github.com/ParisaFarmanifard" target="_blank" rel="noopener" title="GitHub">
+            <img src="images/github_icon.svg" alt="GitHub" loading="lazy">
+          </a>
+          <a href="https://www.linkedin.com/in/parisaf/" target="_blank" rel="noopener" title="LinkedIn">
+            <img src="images/linkedin_logo_icon.svg" alt="LinkedIn" loading="lazy">
+          </a>
+          <a href="mailto:parisa.farmanifard@gmail.com" title="Email">
+            <img src="images/gmail.png" alt="Email" loading="lazy">
+          </a>
+        </nav>
+      </div>
+
+      <div class="avatar-wrap">
+        <img class="avatar" src="images/parisa_july2025.jpg" alt="Parisa Farmanifard" loading="lazy">
+      </div>
+    </div>
+
+    <!-- ── About ─────────────────────────────────────────────── -->
+    <section class="section">
+      <div class="sec-head">
+        <div class="sec-accent"></div>
+        <h2>About</h2>
+      </div>
+      <p class="about-text">
+        I am a Ph.D. student in the Department of Computer Science and Engineering at Michigan State University,
+        where I conduct research in the <a href="https://iprobe.cse.msu.edu/index.php" target="_blank" rel="noopener">iPRoBe Lab</a>
+        under the guidance of <a href="https://scholar.google.com/citations?user=7IiUQDkAAAAJ&hl=en" target="_blank" rel="noopener">Dr. Arun Ross</a>.
+        I also earned my M.S. in Computer Science from MSU.
+        My research focuses on biometrics, particularly iris recognition and presentation attack detection,
+        with a growing emphasis on integrating foundation models (FMs) and large language models (LLMs)
+        into biometric systems.
+      </p>
     </section>
 
-    <!-- Publications -->
+    <!-- ── Publications ──────────────────────────────────────── -->
     <section class="section" id="publications">
-      <h3>Publications</h3>
-      <div class="pub">
+      <div class="sec-head">
+        <div class="sec-accent"></div>
+        <h2>Publications</h2>
+      </div>
+      <div class="pub-list">
+
         <div class="pub-item">
-          <p>[2025] M. Mitcheff, A. Hossain, S. Webster, S.K. Karim, K. Roszczewska, J. Tapia, F. Stockhardt, J. Gonzalez-Soler, J.-Y. Lim, M. Pollok, F. Kreuzer, C. Wang, L. Li, F. Guo, J. Gu, D. Pal, <strong><u>P. Farmanifard</u></strong>, et al., <em>"Iris Liveness Detection Competition (LivDet-Iris) – The 2025 Edition"</em>, Proc. of IEEE International Joint Conference on Biometrics (IJCB), 2025. <a href="https://github.com/CVRL/livdet-iris-2025?tab=readme-ov-file" target="_blank" rel="noopener">[Competition]</a></p>
+          <p class="pub-title">Iris Liveness Detection Competition (LivDet-Iris) – The 2025 Edition</p>
+          <p class="pub-authors">M. Mitcheff, A. Hossain, S. Webster, S.K. Karim, K. Roszczewska, J. Tapia, F. Stockhardt, J. Gonzalez-Soler, J.-Y. Lim, M. Pollok, F. Kreuzer, C. Wang, L. Li, F. Guo, J. Gu, D. Pal, <strong>P. Farmanifard</strong>, et al.</p>
+          <div class="pub-meta">
+            <span class="badge b-year">2025</span>
+            <span class="badge b-venue">IJCB 2025</span>
+            <a class="badge b-link" href="https://github.com/CVRL/livdet-iris-2025?tab=readme-ov-file" target="_blank" rel="noopener">Competition ↗</a>
+          </div>
         </div>
+
         <div class="pub-item">
-          <p>[2025] Redwan Sony, <strong><u>P. Farmanifard</u></strong>, Arun Ross, Anil K Jain, <a href="https://arxiv.org/abs/2507.03541" target="_blank" rel="noopener"><em>"Foundation versus Domain-specific Models: Performance Comparison, Fusion, and Explainability in Face Recognition"</em></a>, IEEE/CVF International Conference on Computer Vision Workshops (ICCVW), (Honolulu, Hawai'i), October 2025.</p>
+          <p class="pub-title">
+            <a href="https://arxiv.org/abs/2507.03541" target="_blank" rel="noopener">Foundation versus Domain-specific Models: Performance Comparison, Fusion, and Explainability in Face Recognition</a>
+          </p>
+          <p class="pub-authors">Redwan Sony, <strong>P. Farmanifard</strong>, Arun Ross, Anil K. Jain</p>
+          <div class="pub-meta">
+            <span class="badge b-year">2025</span>
+            <span class="badge b-venue">ICCVW 2025</span>
+            <a class="badge b-link" href="https://arxiv.org/abs/2507.03541" target="_blank" rel="noopener">arXiv ↗</a>
+          </div>
         </div>
+
         <div class="pub-item">
-          <p>[2025] Redwan Sony, <strong><u>P. Farmanifard</u></strong>, Hamzeh Alzwairy, Nitish Shukla, Arun Ross, <a href="https://arxiv.org/abs/2505.24214" target="_blank" rel="noopener"><em>"Benchmarking Foundation Models for Zero-Shot Biometric Tasks"</em></a>, [Under Review].</p>
+          <p class="pub-title">
+            <a href="https://arxiv.org/abs/2505.24214" target="_blank" rel="noopener">Benchmarking Foundation Models for Zero-Shot Biometric Tasks</a>
+          </p>
+          <p class="pub-authors">Redwan Sony, <strong>P. Farmanifard</strong>, Hamzeh Alzwairy, Nitish Shukla, Arun Ross</p>
+          <div class="pub-meta">
+            <span class="badge b-year">2025</span>
+            <span class="badge b-review">Under Review</span>
+            <a class="badge b-link" href="https://arxiv.org/abs/2505.24214" target="_blank" rel="noopener">arXiv ↗</a>
+          </div>
         </div>
+
         <div class="pub-item">
-          <p>[2025] Rasel Ahmed Bhuyian, <strong><u>P. Farmanifard</u></strong>, Renu Sharma, Andrey Kuehlkamp, Aidan Boyd, Patrick J Flynn, Kevin W Bowyer, Arun Ross, Dennis Chute, Adam Czajka, <a href="https://ieeexplore.ieee.org/abstract/document/11063436" target="_blank" rel="noopener"><em>"Beyond Mortality: Advancements in Post-Mortem Iris Recognition through Data Collection and Computer-Aided Forensic Examination"</em></a>, IEEE Transactions on Biometrics, Behavior, and Identity Science.</p>
+          <p class="pub-title">
+            <a href="https://ieeexplore.ieee.org/abstract/document/11063436" target="_blank" rel="noopener">Beyond Mortality: Advancements in Post-Mortem Iris Recognition through Data Collection and Computer-Aided Forensic Examination</a>
+          </p>
+          <p class="pub-authors">Rasel Ahmed Bhuyian, <strong>P. Farmanifard</strong>, Renu Sharma, Andrey Kuehlkamp, Aidan Boyd, Patrick J. Flynn, Kevin W. Bowyer, Arun Ross, Dennis Chute, Adam Czajka</p>
+          <div class="pub-meta">
+            <span class="badge b-year">2025</span>
+            <span class="badge b-venue">IEEE TBIOM</span>
+            <a class="badge b-link" href="https://ieeexplore.ieee.org/abstract/document/11063436" target="_blank" rel="noopener">IEEE ↗</a>
+          </div>
         </div>
+
         <div class="pub-item">
-          <p>[2024] <strong><u>P. Farmanifard</u></strong> and Arun Ross, <a href="https://arxiv.org/abs/2408.04868" target="_blank" rel="noopener"><em>"ChatGPT Meets Iris Biometrics"</em></a>, Proc. of International Joint Conference on Biometrics (IJCB), (Buffalo, USA), September 2024 [Oral].</p>
+          <p class="pub-title">
+            <a href="https://arxiv.org/abs/2408.04868" target="_blank" rel="noopener">ChatGPT Meets Iris Biometrics</a>
+          </p>
+          <p class="pub-authors"><strong>P. Farmanifard</strong>, Arun Ross</p>
+          <div class="pub-meta">
+            <span class="badge b-year">2024</span>
+            <span class="badge b-venue">IJCB 2024</span>
+            <span class="badge b-oral">Oral</span>
+            <a class="badge b-link" href="https://arxiv.org/abs/2408.04868" target="_blank" rel="noopener">arXiv ↗</a>
+          </div>
         </div>
+
         <div class="pub-item">
-          <p>[2024] <strong><u>P. Farmanifard</u></strong> and Arun Ross, <a href="https://arxiv.org/abs/2402.06497" target="_blank" rel="noopener"><em>"Iris-SAM: Iris Segmentation Using a Foundation Model"</em></a>, Proc. of 4th International Conference on Pattern Recognition and Artificial Intelligence (ICPRAI), (Jeju Island, South Korea), July 2024 [Oral].</p>
+          <p class="pub-title">
+            <a href="https://arxiv.org/abs/2402.06497" target="_blank" rel="noopener">Iris-SAM: Iris Segmentation Using a Foundation Model</a>
+          </p>
+          <p class="pub-authors"><strong>P. Farmanifard</strong>, Arun Ross</p>
+          <div class="pub-meta">
+            <span class="badge b-year">2024</span>
+            <span class="badge b-venue">ICPRAI 2024</span>
+            <span class="badge b-oral">Oral</span>
+            <a class="badge b-link" href="https://arxiv.org/abs/2402.06497" target="_blank" rel="noopener">arXiv ↗</a>
+          </div>
         </div>
+
       </div>
     </section>
 
-    <!-- Projects with framework images -->
+    <!-- ── Projects ──────────────────────────────────────────── -->
     <section class="section" id="projects">
-      <h3>Projects</h3>
+      <div class="sec-head">
+        <div class="sec-accent"></div>
+        <h2>Research Projects</h2>
+      </div>
+      <div class="proj-list">
 
-      <div class="project">
-        <h4>Contact Lens Detection</h4>
-        <div class="proj-body">
-          <figure class="frame" data-lightbox="images/pad_framework.png" aria-label="PAD framework image">
-            <img src="images/pad_framework.png" alt="PAD framework diagram (clear vs patterned lens detection)" loading="lazy">
+        <div class="proj-card">
+          <figure class="proj-img" data-lightbox="images/pad_framework.png" style="margin:0" aria-label="PAD framework — click to enlarge">
+            <img src="images/pad_framework.png" alt="Contact lens detection framework" loading="lazy">
           </figure>
-          <div>
-            <p>Currently, working on improving the detection of contact lenses in iris images to prevent fraud in iris recognition systems. Specifically, I use deep learning models to distinguish between natural irises and those altered by clear or patterned contact lenses, aiming to boost the security of these biometric systems.</p>
+          <div class="proj-body">
+            <h3 class="proj-name">Contact Lens Detection</h3>
+            <p class="proj-desc">Working on improving the detection of contact lenses in iris images to prevent fraud in iris recognition systems. Deep learning models are used to distinguish between natural irises and those altered by clear or patterned contact lenses, aiming to boost the security of biometric authentication.</p>
+            <div class="tag-row">
+              <span class="pill pill-blue" style="font-size:12px">Deep Learning</span>
+              <span class="pill pill-purple" style="font-size:12px">Iris Biometrics</span>
+              <span class="pill pill-amber" style="font-size:12px">PAD</span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="project">
-        <h4>ChatGPT Meets Iris Biometrics</h4>
-        <div class="proj-body">
-          <figure class="frame" data-lightbox="images/chatgpt_iris_framework.png" aria-label="ChatGPT-Iris framework image">
-            <img src="images/chatgpt_iris_framework.png" alt="Framework diagram for ChatGPT-based iris verification" loading="lazy">
+        <div class="proj-card">
+          <figure class="proj-img" data-lightbox="images/chatgpt_iris_framework.png" style="margin:0" aria-label="ChatGPT-Iris framework — click to enlarge">
+            <img src="images/chatgpt_iris_framework.png" alt="ChatGPT meets iris biometrics framework" loading="lazy">
           </figure>
-          <div>
-            <p>This study utilizes the advanced capabilities of the GPT4 multimodal Large Language Model (LLM) to explore its potential in iris recognition — a field less common and more specialized than face recognition. By focusing on this niche yet crucial area, we investigate how well AI tools like ChatGPT can understand and analyze iris images. Through a
-            series of meticulously designed experiments employing a zero-shot learning approach, the capabilities of ChatGPT-4 was assessed across various challenging conditions including diverse datasets, presentation attacks, occlusions such as glasses, and other real-world variations. The findings
-            convey ChatGPT-4’s remarkable adaptability and precision, revealing its proficiency in identifying distinctive iris features, while also detecting subtle effects like makeup on iris recognition. A comparative analysis with Gemini Advanced – Google’s AI model – highlighted ChatGPT-4’s
-            better performance and user experience in complex iris analysis tasks. This research not only validates the use of LLMs for specialized biometric applications but also emphasizes the importance of nuanced query framing and interaction design in extracting significant insights from biometric data.
-            Our findings suggest a promising path for future research and the development of more adaptable, efficient, robust and interactive biometric security solutions.</p>
+          <div class="proj-body">
+            <h3 class="proj-name">ChatGPT Meets Iris Biometrics</h3>
+            <p class="proj-desc">Explores the capabilities of GPT-4 multimodal LLM for iris recognition via zero-shot learning across diverse datasets, presentation attacks, occlusions, and real-world variations. A comparative analysis with Gemini Advanced highlights ChatGPT-4's superior performance and robustness in complex iris analysis tasks.</p>
+            <div class="tag-row">
+              <span class="pill pill-blue" style="font-size:12px">LLMs</span>
+              <span class="pill pill-purple" style="font-size:12px">GPT-4</span>
+              <span class="pill pill-green" style="font-size:12px">Zero-Shot Learning</span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="project">
-        <h4>Iris-SAM: Iris Segmentation Using a Foundation Model</h4>
-        <div class="proj-body">
-          <figure class="frame" data-lightbox="images/iris_sam_framework.png" aria-label="Iris-SAM framework image">
-            <img src="images/iris_sam_framework.png" alt="Iris-SAM segmentation pipeline diagram" loading="lazy">
+        <div class="proj-card">
+          <figure class="proj-img" data-lightbox="images/iris_sam_framework.png" style="margin:0" aria-label="Iris-SAM framework — click to enlarge">
+            <img src="images/iris_sam_framework.png" alt="Iris-SAM segmentation pipeline" loading="lazy">
           </figure>
-          <div>
-            <p>Iris segmentation is a critical component of an iris biometric system and it involves extracting the annular iris region from an ocular image. In this work, we develop a pixel-level iris segmentation model from a foundation model, viz., Segment Anything Model (SAM), that
-            has been successfully used for segmenting arbitrary objects. The primary contribution of this work lies in the integration of different loss functions during the fine-tuning of SAM on ocular images. In particular, the importance of Focal Loss is borne out in the fine-tuning process since it
-            strategically addresses the class imbalance problem (i.e., iris versus noniris pixels). Experiments on ND-IRIS-0405, CASIA-Iris-Interval-v3, and IIT-Delhi-Iris datasets convey the efficacy of the trained model for the task of iris segmentation. For instance, on the ND-IRIS-0405 dataset, an
-            average segmentation accuracy of 99.58% was achieved, compared to the best baseline performance of 89.75%.</p>
-            <p><a href="https://github.com/ParisaFarmanifard/Iris-SAM" target="_blank" rel="noopener">View on GitHub</a></p>
+          <div class="proj-body">
+            <h3 class="proj-name">Iris-SAM: Iris Segmentation Using a Foundation Model</h3>
+            <p class="proj-desc">Develops a pixel-level iris segmentation model by fine-tuning the Segment Anything Model (SAM) on ocular images, leveraging Focal Loss to address class imbalance. Achieves <strong>99.58%</strong> average segmentation accuracy on ND-IRIS-0405, surpassing the previous best baseline of 89.75%.</p>
+            <div class="tag-row">
+              <span class="pill pill-green" style="font-size:12px">SAM</span>
+              <span class="pill pill-purple" style="font-size:12px">Foundation Models</span>
+              <span class="pill pill-blue" style="font-size:12px">Segmentation</span>
+            </div>
+            <p style="margin-top:10px"><a href="https://github.com/ParisaFarmanifard/Iris-SAM" target="_blank" rel="noopener" style="font-size:14px;font-weight:600">View on GitHub ↗</a></p>
           </div>
         </div>
-      </div>
 
-      <div class="project">
-        <h4>Cross-Spectral Face Recognition Using Generative Adversarial Networks (GANs)</h4>
-        <div class="proj-body">
-          <figure class="frame" data-lightbox="images/FR_framework.png" aria-label="Cross-spectral framework image">
-            <img src="images/FR_framework.png" alt="Cross-spectral face recognition framework diagram" loading="lazy">
+        <div class="proj-card">
+          <figure class="proj-img" data-lightbox="images/FR_framework.png" style="margin:0" aria-label="Cross-spectral FR framework — click to enlarge">
+            <img src="images/FR_framework.png" alt="Cross-spectral face recognition framework" loading="lazy">
           </figure>
-          <div>
-            <p>Cross-spectral Face Recognition (CFR) refers to the task of identifying matching features between two images of the same person captured in two different spectral bands. This involves recognizing faces across different imaging modalities such as visible, infrared, or depth maps. In this study, 
-            we used ArcFace to calculate match scores between images taken from different spectral bands. We first computed similarity scores between original images of the same identity captured in SWIR and VIS, and then compared them with similarities between synthesized VIS images and the 
-            original VIS/SWIR images using SG-GAN. Our results showed that using ArcFace led to the best performance for both synthesized and original images. This was because the similarity scores were well-separated in the histogram, indicating high discrimination between different identities. However, the performance of outdoor image analysis can be improved by applying image enhancement methods that address issues such as low contrast, noise, or illumination variations.</p>
+          <div class="proj-body">
+            <h3 class="proj-name">Cross-Spectral Face Recognition Using GANs</h3>
+            <p class="proj-desc">Addresses matching faces across different spectral bands (SWIR vs. VIS). Computes ArcFace match scores between synthesized and original cross-spectral images via SG-GAN, achieving well-separated identity histograms and strong discrimination accuracy. Highlights the value of image enhancement for challenging outdoor scenarios.</p>
+            <div class="tag-row">
+              <span class="pill pill-purple" style="font-size:12px">GANs</span>
+              <span class="pill pill-blue" style="font-size:12px">Face Recognition</span>
+              <span class="pill pill-green" style="font-size:12px">ArcFace</span>
+            </div>
           </div>
         </div>
-      </div>
 
+      </div>
     </section>
 
-    <!-- Posters -->
+    <!-- ── Poster Presentations ───────────────────────────────── -->
     <section class="section">
-      <h3>Poster Presentations</h3>
-      <ul>
-        <li>"Eye Contact: A Dual-Stage Approach for Automated Contact Lens Detection", NotreDame University 2025 (UND). </li>
-        <li>"ChatGPT Meets Iris Biometrics", IJCB 2024 (Buffalo, NY).</li>
-        <li>"Iris-SAM: Iris Segmentation Using a Foundation Model", Engineering Graduate Research Symposium 2024 (MSU).</li>
-        <li>"Cross-Spectral Face Recognition Using a Semantic-Guided GAN", Engineering Graduate Research Symposium 2023 (MSU).</li>
+      <div class="sec-head">
+        <div class="sec-accent"></div>
+        <h2>Poster Presentations</h2>
+      </div>
+      <ul class="pres-list">
+        <li>"Eye Contact: A Dual-Stage Approach for Automated Contact Lens Detection" — University of Notre Dame (UND), 2025</li>
+        <li>"ChatGPT Meets Iris Biometrics" — IJCB 2024, Buffalo, NY</li>
+        <li>"Iris-SAM: Iris Segmentation Using a Foundation Model" — Engineering Graduate Research Symposium 2024, MSU</li>
+        <li>"Cross-Spectral Face Recognition Using a Semantic-Guided GAN" — Engineering Graduate Research Symposium 2023, MSU</li>
       </ul>
     </section>
 
-    <!-- Education -->
-    <section class="section">
-      <h3>Education</h3>
-      <ul>
-        <li>[2021 - Present] Doctor of Philosophy (Ph.D.), Computer Science, Michigan State University, USA.</li>
-        <li>[2021 - 2023] Master of Science (MS), Computer Science, Michigan State University, USA.</li>
-        <li>[2013 - 2017] Bachelor of Engineering (B.E.), IT Engineering, MU.</li>
-      </ul>
+    <!-- ── Education ──────────────────────────────────────────── -->
+    <section class="section" id="education">
+      <div class="sec-head">
+        <div class="sec-accent"></div>
+        <h2>Education</h2>
+      </div>
+      <div class="timeline">
+
+        <div class="tl-item">
+          <div class="tl-dot">Ph.D.</div>
+          <div class="tl-body">
+            <p class="tl-degree">Doctor of Philosophy, Computer Science</p>
+            <p class="tl-place">Michigan State University, USA &nbsp;·&nbsp; 2021 – Present</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot">M.S.</div>
+          <div class="tl-body">
+            <p class="tl-degree">Master of Science, Computer Science</p>
+            <p class="tl-place">Michigan State University, USA &nbsp;·&nbsp; 2021 – 2023</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot">B.E.</div>
+          <div class="tl-body">
+            <p class="tl-degree">Bachelor of Engineering, IT Engineering</p>
+            <p class="tl-place">MU &nbsp;·&nbsp; 2013 – 2017</p>
+          </div>
+        </div>
+
+      </div>
     </section>
 
-    <!-- Internship -->
+    <!-- ── Experience ─────────────────────────────────────────── -->
     <section class="section">
-      <h3>Internship Experience</h3>
-      <ul>
-        <li>In the summer of 2023, I had an internship experience at <a href="https://www.aep.com/">American Electric Power (AEP)</a>, working with their emerging technology group. My role involved a project on <em>"drone-based pole detection"</em>, collaborating closely with a computer vision and machine learning group. During my internship, I have worked with various detection methods, including <strong>Detectron2, Yolov4, Yolov8</strong>, and the <strong>Segment Anything Model (SAM)</strong>, primarily focusing on drone images.</li>
-      </ul>
+      <div class="sec-head">
+        <div class="sec-accent"></div>
+        <h2>Experience</h2>
+      </div>
+      <div class="exp-card">
+        <div class="exp-top">
+          <span class="exp-title">Computer Vision Research Intern</span>
+          <span class="exp-date">Summer 2023</span>
+        </div>
+        <p class="exp-org">
+          <a href="https://www.aep.com/" target="_blank" rel="noopener">American Electric Power (AEP)</a>
+          &nbsp;—&nbsp; Emerging Technology Group
+        </p>
+        <p class="exp-desc">
+          Led a project on <em>drone-based pole detection</em>, collaborating with a computer vision and machine
+          learning team. Applied and evaluated multiple detection frameworks including
+          <strong>Detectron2, YOLOv4, YOLOv8</strong>, and the <strong>Segment Anything Model (SAM)</strong>
+          on drone imagery.
+        </p>
+      </div>
     </section>
 
-    <footer>
-      <p>Contact: <a href="mailto:parisa.farmanifard@gmail.com"><em>parisa.farmanifard@gmail.com</em></a></p>
+    <!-- ── Footer ─────────────────────────────────────────────── -->
+    <footer id="contact">
+      <p>Contact: <a href="mailto:parisa.farmanifard@gmail.com">parisa.farmanifard@gmail.com</a></p>
+      <p>&copy; 2025 Parisa Farmanifard &nbsp;·&nbsp; Michigan State University</p>
     </footer>
-  </div>
 
-  <!-- Minimal lightbox logic -->
-  <dialog class="lightbox" id="lightbox">
-    <img class="lightbox-img" id="lightboxImg" alt="Framework preview">
+  </main>
+
+  <!-- ── Lightbox ───────────────────────────────────────────── -->
+  <dialog class="lb" id="lightbox">
+    <img class="lb-img" id="lbImg" alt="Framework preview">
   </dialog>
   <script>
-    // Click any .frame to open its image in a native <dialog> lightbox
-    const dialog = document.getElementById('lightbox');
-    const dialogImg = document.getElementById('lightboxImg');
-    document.querySelectorAll('.frame').forEach(frame => {
-      const src = frame.getAttribute('data-lightbox');
-      frame.addEventListener('click', () => {
-        dialogImg.src = src;
-        dialog.showModal();
+    const dlg = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImg');
+    document.querySelectorAll('[data-lightbox]').forEach(el => {
+      el.addEventListener('click', () => {
+        lbImg.src = el.getAttribute('data-lightbox');
+        dlg.showModal();
       });
     });
-    dialog.addEventListener('click', e => {
-      const rect = dialogImg.getBoundingClientRect();
-      const outside = e.clientX < rect.left || e.clientX > rect.right || e.clientY < rect.top || e.clientY > rect.bottom;
-      if(outside){ dialog.close(); dialogImg.src = ""; }
+    dlg.addEventListener('click', e => {
+      const r = lbImg.getBoundingClientRect();
+      if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) {
+        dlg.close(); lbImg.src = '';
+      }
     });
-    document.addEventListener('keydown', e => { if(e.key === 'Escape' && dialog.open){ dialog.close(); dialogImg.src=""; } });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && dlg.open) { dlg.close(); lbImg.src = ''; }
+    });
   </script>
 </body>
 </html>
