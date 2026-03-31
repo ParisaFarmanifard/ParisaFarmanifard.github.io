@@ -222,21 +222,22 @@
     .b-link   { font-size: 13px; font-weight: 500; color: var(--blue); }
 
     /* ── Projects ────────────────────────────────────────────── */
-    .proj-list { display: flex; flex-direction: column; gap: 18px; }
+    .proj-list { display: flex; flex-direction: column; gap: 20px; }
     .proj-card {
       border: 1px solid var(--border);
-      border-radius: 12px; overflow: hidden;
-      display: grid; grid-template-columns: 260px 1fr;
+      border-radius: 14px; overflow: hidden;
+      display: grid; grid-template-columns: 270px 1fr;
       transition: box-shadow .25s, transform .25s, border-color .25s;
+      background: var(--surface);
     }
     .proj-card:hover {
       box-shadow: var(--shadow-hover);
-      transform: translateY(-2px);
-      border-color: rgba(26,86,219,.26);
+      transform: translateY(-3px);
+      border-color: rgba(26,86,219,.28);
     }
     .proj-img {
       position: relative; cursor: zoom-in; overflow: hidden;
-      background: var(--surface-2); display: block;
+      background: var(--surface-2); display: block; min-height: 180px;
     }
     .proj-img img {
       width: 100%; height: 100%;
@@ -248,15 +249,45 @@
       content: ""; position: absolute; left: 0; top: 0; right: 0; height: 3px;
       background: linear-gradient(90deg, var(--blue), #7c3aed, #059669, #d97706);
     }
-    .proj-body { padding: 20px 22px; display: flex; flex-direction: column; gap: 10px; }
+    /* zoom hint icon */
+    .proj-img::before {
+      content: "⤢"; position: absolute; right: 8px; bottom: 8px;
+      font-size: 13px; color: var(--text-3); background: rgba(255,255,255,.75);
+      width: 24px; height: 24px; border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity .2s; pointer-events: none;
+    }
+    .proj-img:hover::before { opacity: 1; }
+    .proj-body { padding: 22px 24px; display: flex; flex-direction: column; gap: 10px; }
+    .proj-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
     .proj-name {
       font-size: 16px; font-weight: 700; color: var(--text); line-height: 1.4;
+      margin: 0;
     }
+    .proj-status {
+      font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 999px;
+      white-space: nowrap; flex-shrink: 0; margin-top: 2px;
+    }
+    .status-published { background: #ecfdf5; color: #047857; border: 1px solid rgba(4,120,87,.2); }
+    .status-ongoing   { background: var(--blue-tint); color: var(--blue); border: 1px solid var(--blue-ring); }
     .proj-desc {
-      font-size: 14.5px; color: var(--text-2); line-height: 1.75;
-      flex: 1;
+      font-size: 14.5px; color: var(--text-2); line-height: 1.78;
+      flex: 1; margin: 0;
     }
     .tag-row { display: flex; flex-wrap: wrap; gap: 6px; }
+    .proj-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+    .proj-link-btn {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 5px 13px; border-radius: 8px; font-size: 13px; font-weight: 600;
+      border: 1px solid var(--border); background: var(--surface-2);
+      color: var(--text-2); text-decoration: none;
+      transition: background .18s, border-color .18s, color .18s;
+    }
+    .proj-link-btn:hover {
+      background: var(--blue-tint); border-color: rgba(26,86,219,.3);
+      color: var(--blue); text-decoration: none;
+    }
+    .proj-link-btn svg { flex-shrink: 0; }
 
     /* ── Presentations ───────────────────────────────────────── */
     .pres-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
@@ -340,7 +371,7 @@
       .avatar { width: 150px; height: 192px; border-radius: 16px; }
       .section { padding: 20px; }
       .proj-card { grid-template-columns: 1fr; }
-      .proj-img { height: 190px; }
+      .proj-img { height: 200px; min-height: unset; }
       footer { flex-direction: column; text-align: center; }
     }
     @media (max-width: 480px) {
@@ -452,6 +483,7 @@
             <span class="badge b-year">2025</span>
             <span class="badge b-venue">ICCVW 2025</span>
             <a class="badge b-link" href="https://arxiv.org/abs/2507.03541" target="_blank" rel="noopener">arXiv ↗</a>
+            <a class="badge b-link" href="https://github.com/iPRoBe-lab/AFRvsVLM/blob/supplementary/README.md" target="_blank" rel="noopener">GitHub ↗</a>
           </div>
         </div>
 
@@ -516,12 +548,16 @@
       </div>
       <div class="proj-list">
 
+        <!-- Project 1 -->
         <div class="proj-card">
           <figure class="proj-img" data-lightbox="images/pad_framework.png" style="margin:0" aria-label="PAD framework — click to enlarge">
             <img src="images/pad_framework.png" alt="Contact lens detection framework" loading="lazy">
           </figure>
           <div class="proj-body">
-            <h3 class="proj-name">Contact Lens Detection</h3>
+            <div class="proj-header">
+              <h3 class="proj-name">Contact Lens Detection</h3>
+              <span class="proj-status status-ongoing">In Progress</span>
+            </div>
             <p class="proj-desc">Working on improving the detection of contact lenses in iris images to prevent fraud in iris recognition systems. Deep learning models are used to distinguish between natural irises and those altered by clear or patterned contact lenses, aiming to boost the security of biometric authentication.</p>
             <div class="tag-row">
               <span class="pill pill-blue" style="font-size:12px">Deep Learning</span>
@@ -531,43 +567,99 @@
           </div>
         </div>
 
+        <!-- Project 2 -->
+        <div class="proj-card">
+          <figure class="proj-img" data-lightbox="images/FR_framework.png" style="margin:0" aria-label="Foundation vs Domain-specific framework — click to enlarge">
+            <img src="images/FR_framework.png" alt="Foundation vs domain-specific face recognition" loading="lazy">
+          </figure>
+          <div class="proj-body">
+            <div class="proj-header">
+              <h3 class="proj-name">Foundation vs. Domain-Specific Models in Face Recognition</h3>
+              <span class="proj-status status-published">Published</span>
+            </div>
+            <p class="proj-desc">A comprehensive benchmark comparing foundation models (VLMs) against domain-specific models for face recognition. Evaluates performance, fusion strategies, and explainability across multiple datasets, revealing tradeoffs between generalizability and specialized accuracy.</p>
+            <div class="tag-row">
+              <span class="pill pill-blue" style="font-size:12px">Face Recognition</span>
+              <span class="pill pill-green" style="font-size:12px">Foundation Models</span>
+              <span class="pill pill-purple" style="font-size:12px">Explainability</span>
+            </div>
+            <div class="proj-links">
+              <a class="proj-link-btn" href="https://arxiv.org/abs/2507.03541" target="_blank" rel="noopener">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                arXiv
+              </a>
+              <a class="proj-link-btn" href="https://github.com/iPRoBe-lab/AFRvsVLM/blob/supplementary/README.md" target="_blank" rel="noopener">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
         <div class="proj-card">
           <figure class="proj-img" data-lightbox="images/chatgpt_iris_framework.png" style="margin:0" aria-label="ChatGPT-Iris framework — click to enlarge">
             <img src="images/chatgpt_iris_framework.png" alt="ChatGPT meets iris biometrics framework" loading="lazy">
           </figure>
           <div class="proj-body">
-            <h3 class="proj-name">ChatGPT Meets Iris Biometrics</h3>
+            <div class="proj-header">
+              <h3 class="proj-name">ChatGPT Meets Iris Biometrics</h3>
+              <span class="proj-status status-published">Published</span>
+            </div>
             <p class="proj-desc">Explores the capabilities of GPT-4 multimodal LLM for iris recognition via zero-shot learning across diverse datasets, presentation attacks, occlusions, and real-world variations. A comparative analysis with Gemini Advanced highlights ChatGPT-4's superior performance and robustness in complex iris analysis tasks.</p>
             <div class="tag-row">
               <span class="pill pill-blue" style="font-size:12px">LLMs</span>
               <span class="pill pill-purple" style="font-size:12px">GPT-4</span>
               <span class="pill pill-green" style="font-size:12px">Zero-Shot Learning</span>
             </div>
+            <div class="proj-links">
+              <a class="proj-link-btn" href="https://arxiv.org/abs/2408.04868" target="_blank" rel="noopener">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                arXiv
+              </a>
+            </div>
           </div>
         </div>
 
+        <!-- Project 4 -->
         <div class="proj-card">
           <figure class="proj-img" data-lightbox="images/iris_sam_framework.png" style="margin:0" aria-label="Iris-SAM framework — click to enlarge">
             <img src="images/iris_sam_framework.png" alt="Iris-SAM segmentation pipeline" loading="lazy">
           </figure>
           <div class="proj-body">
-            <h3 class="proj-name">Iris-SAM: Iris Segmentation Using a Foundation Model</h3>
+            <div class="proj-header">
+              <h3 class="proj-name">Iris-SAM: Iris Segmentation Using a Foundation Model</h3>
+              <span class="proj-status status-published">Published</span>
+            </div>
             <p class="proj-desc">Develops a pixel-level iris segmentation model by fine-tuning the Segment Anything Model (SAM) on ocular images, leveraging Focal Loss to address class imbalance. Achieves <strong>99.58%</strong> average segmentation accuracy on ND-IRIS-0405, surpassing the previous best baseline of 89.75%.</p>
             <div class="tag-row">
               <span class="pill pill-green" style="font-size:12px">SAM</span>
               <span class="pill pill-purple" style="font-size:12px">Foundation Models</span>
               <span class="pill pill-blue" style="font-size:12px">Segmentation</span>
             </div>
-            <p style="margin-top:10px"><a href="https://github.com/ParisaFarmanifard/Iris-SAM" target="_blank" rel="noopener" style="font-size:14px;font-weight:600">View on GitHub ↗</a></p>
+            <div class="proj-links">
+              <a class="proj-link-btn" href="https://arxiv.org/abs/2402.06497" target="_blank" rel="noopener">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                arXiv
+              </a>
+              <a class="proj-link-btn" href="https://github.com/ParisaFarmanifard/Iris-SAM" target="_blank" rel="noopener">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                GitHub
+              </a>
+            </div>
           </div>
         </div>
 
+        <!-- Project 5 -->
         <div class="proj-card">
           <figure class="proj-img" data-lightbox="images/FR_framework.png" style="margin:0" aria-label="Cross-spectral FR framework — click to enlarge">
             <img src="images/FR_framework.png" alt="Cross-spectral face recognition framework" loading="lazy">
           </figure>
           <div class="proj-body">
-            <h3 class="proj-name">Cross-Spectral Face Recognition Using GANs</h3>
+            <div class="proj-header">
+              <h3 class="proj-name">Cross-Spectral Face Recognition Using GANs</h3>
+              <span class="proj-status status-published">Published</span>
+            </div>
             <p class="proj-desc">Addresses matching faces across different spectral bands (SWIR vs. VIS). Computes ArcFace match scores between synthesized and original cross-spectral images via SG-GAN, achieving well-separated identity histograms and strong discrimination accuracy. Highlights the value of image enhancement for challenging outdoor scenarios.</p>
             <div class="tag-row">
               <span class="pill pill-purple" style="font-size:12px">GANs</span>
